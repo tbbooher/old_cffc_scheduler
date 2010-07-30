@@ -1,0 +1,12 @@
+<% title "Meeting Type" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @meeting_type.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_meeting_type_path(@meeting_type) %> |
+  <%= link_to "Destroy", @meeting_type, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", meeting_types_path %>
+</p>

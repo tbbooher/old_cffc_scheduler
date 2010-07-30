@@ -1,0 +1,21 @@
+<% title "Trainers" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Phone</th>
+  </tr>
+  <% for trainer in @trainers %>
+    <tr>
+      <td><%=h trainer.name %></td>
+      <td><%=h trainer.description %></td>
+      <td><%=h trainer.phone %></td>
+      <td><%= link_to "Show", trainer %></td>
+      <td><%= link_to "Edit", edit_trainer_path(trainer) %></td>
+      <td><%= link_to "Destroy", trainer, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Trainer", new_trainer_path %></p>

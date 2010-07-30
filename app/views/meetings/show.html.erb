@@ -1,0 +1,28 @@
+<% title "Meeting" %>
+
+<p>
+  <strong>Trainer Meeting:</strong>
+  <%=h @meeting.trainer_meeting_id %>
+</p>
+<p>
+  <strong>Type:</strong>
+  <%=h @meeting.meeting_type_id %>
+</p>
+<p>
+  <strong>Time Slot:</strong>
+  <%=h @meeting.time_slot_id %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%=h @meeting.meeting_date %>
+</p>
+<p>
+  <strong>Duration:</strong>
+  <%=h @meeting.duration %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_meeting_path(@meeting) %> |
+  <%= link_to "Destroy", @meeting, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", meetings_path %>
+</p>

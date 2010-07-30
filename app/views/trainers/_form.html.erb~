@@ -1,0 +1,7 @@
+<% semantic_form_for @trainer do |f| %>
+  <% f.inputs do %>
+   <%= f.input :name %>
+   <%= f.input :description => :required => false %>
+  <% end %>
+  <%= f.buttons %>
+<% end %>

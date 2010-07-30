@@ -1,0 +1,8 @@
+class InterfaceController < ApplicationController
+  def index
+  end
+
+  def monthly_report
+  end
+
+end

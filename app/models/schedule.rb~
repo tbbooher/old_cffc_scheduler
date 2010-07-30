@@ -1,0 +1,3 @@
+class Schedule < ActiveRecord::Base
+  attr_accessible :trainer_id, :meeting_id
+end

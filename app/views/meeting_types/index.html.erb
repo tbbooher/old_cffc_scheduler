@@ -1,0 +1,17 @@
+<% title "Meeting Types" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for meeting_type in @meeting_types %>
+    <tr>
+      <td><%=h meeting_type.name %></td>
+      <td><%= link_to "Show", meeting_type %></td>
+      <td><%= link_to "Edit", edit_meeting_type_path(meeting_type) %></td>
+      <td><%= link_to "Destroy", meeting_type, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Meeting Type", new_meeting_type_path %></p>
