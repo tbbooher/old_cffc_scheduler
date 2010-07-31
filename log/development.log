@@ -3362,3 +3362,916 @@ Processing InterfaceController#index (for 127.0.0.1 at 2010-07-29 23:19:53) [GET
 Rendering template within layouts/application
 Rendering interface/index
 Completed in 12ms (View: 6, DB: 1) | 200 OK [http://localhost/interface]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSchedules (20100730021556)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "schedules"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100730021556'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("classes")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("meeting_types")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("meetings")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("time_slots")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("trainer_meetings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("trainers")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrainers (20100730004355)
+Migrating to CreateMeetings (20100730011149)
+Migrating to CreateTrainerMeetings (20100730011230)
+Migrating to CreateMeetingTypes (20100730011555)
+Migrating to CreateTimeSlots (20100730011618)
+Migrating to CreateSchedules (20100730021556)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100730021556')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("classes")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("meeting_types")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("meetings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schedules")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("time_slots")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("trainer_meetings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("trainers")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrainers (20100730004355)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "trainers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "phone" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730004355')[0m
+Migrating to CreateMeetings (20100730011149)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "starttime" datetime, "endtime" datetime, "all_day" boolean DEFAULT 'f', "description" text, "event_series_id" integer, "trainer_meeting_id" integer, "meeting_type_id" integer, "time_slot_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011149')[0m
+Migrating to CreateTrainerMeetings (20100730011230)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "trainer_meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011230')[0m
+Migrating to CreateMeetingTypes (20100730011555)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "meeting_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011555')[0m
+Migrating to CreateTimeSlots (20100730011618)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "time_slots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" time, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011618')[0m
+Migrating to CreateSchedules (20100730021556)
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730021556')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("meeting_types")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("meetings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schedules")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("time_slots")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("trainer_meetings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("trainers")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-30 08:33:36) [GET]
+  [4;36;1mMeeting Load (0.6ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 32ms (View: 15, DB: 1) | 200 OK [http://localhost/meetings/]
+
+
+Processing MeetingsController#new (for 127.0.0.1 at 2010-07-30 08:33:38) [GET]
+Rendering template within layouts/application
+Rendering meetings/new
+  [4;35;1mTrainer Load (0.2ms)[0m   [0mSELECT * FROM "trainers" [0m
+DEPRECATION WARNING: The _id way of doing things is deprecated. Please use the association method (meeting_type). (called from send at /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/../lib/formtastic.rb:112)
+  [4;36;1mMeetingType Load (0.1ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+  [4;35;1mTimeSlot Load (0.1ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendered meetings/_form (39.8ms)
+Completed in 55ms (View: 48, DB: 0) | 200 OK [http://localhost/meetings/new]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 06:44:03) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #24 of app/views/interface/index.html.erb:
+21:         <h1>Meetings</h1>
+22:         <% title "Sessions" %>
+23:         <ul>
+24:           <% @meetings.each do |m| %>
+25:               <li><%= m.id %></li>
+26:           <% end %>
+27:         </ul>
+
+    app/views/interface/index.html.erb:24
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (102.7ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 06:44:33) [GET]
+  [4;36;1mMeeting Load (18.9ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 93ms (View: 36, DB: 19) | 200 OK [http://localhost/meetings]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 06:44:43) [GET]
+  [4;35;1mTrainer Load (17.5ms)[0m   [0mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 113ms (View: 10, DB: 17) | 200 OK [http://localhost/trainers]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 06:44:52) [GET]
+  [4;36;1mMeetingType Load (6.1ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 67ms (View: 21, DB: 6) | 200 OK [http://localhost/meeting_types/]
+
+
+Processing MeetingTypesController#new (for 127.0.0.1 at 2010-07-31 06:44:55) [GET]
+Rendering template within layouts/application
+Rendering meeting_types/new
+Rendered meeting_types/_form (65.7ms)
+Completed in 81ms (View: 76, DB: 0) | 200 OK [http://localhost/meeting_types/new]
+
+
+Processing MeetingTypesController#create (for 127.0.0.1 at 2010-07-31 06:45:00) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "meeting_type"=>{"name"=>"WOD"}}
+  [4;35;1mMeetingType Create (0.4ms)[0m   [0mINSERT INTO "meeting_types" ("name", "created_at", "updated_at") VALUES('WOD', '2010-07-31 10:45:00', '2010-07-31 10:45:00')[0m
+Redirected to http://localhost:3000/meeting_types/1
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#show (for 127.0.0.1 at 2010-07-31 06:45:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMeetingType Load (0.2ms)[0m   [0;1mSELECT * FROM "meeting_types" WHERE ("meeting_types"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering meeting_types/show
+Completed in 25ms (View: 19, DB: 0) | 200 OK [http://localhost/meeting_types/1]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 06:45:03) [GET]
+  [4;35;1mMeetingType Load (0.5ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 71ms (View: 6, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#new (for 127.0.0.1 at 2010-07-31 06:45:04) [GET]
+Rendering template within layouts/application
+Rendering meeting_types/new
+Rendered meeting_types/_form (4.5ms)
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/meeting_types/new]
+
+
+Processing MeetingTypesController#create (for 127.0.0.1 at 2010-07-31 06:45:11) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "meeting_type"=>{"name"=>"Elements"}}
+  [4;36;1mMeetingType Create (0.3ms)[0m   [0;1mINSERT INTO "meeting_types" ("name", "created_at", "updated_at") VALUES('Elements', '2010-07-31 10:45:11', '2010-07-31 10:45:11')[0m
+Redirected to http://localhost:3000/meeting_types/2
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#show (for 127.0.0.1 at 2010-07-31 06:45:12) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mMeetingType Load (0.2ms)[0m   [0mSELECT * FROM "meeting_types" WHERE ("meeting_types"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering meeting_types/show
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/meeting_types/2]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 06:45:13) [GET]
+  [4;36;1mMeetingType Load (0.4ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 06:45:24) [GET]
+  [4;35;1mTrainer Load (0.4ms)[0m   [0mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing TrainersController#new (for 127.0.0.1 at 2010-07-31 06:45:26) [GET]
+Rendering template within layouts/application
+Rendering trainers/new
+Rendered trainers/_form (22.5ms)
+Completed in 56ms (View: 51, DB: 0) | 200 OK [http://localhost/trainers/new]
+
+
+Processing TrainersController#create (for 127.0.0.1 at 2010-07-31 06:45:29) [POST]
+  Parameters: {"commit"=>"Create Trainer", "trainer"=>{"name"=>"Tim", "phone"=>"", "description"=>""}, "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+  [4;36;1mTrainer Create (0.9ms)[0m   [0;1mINSERT INTO "trainers" ("name", "created_at", "updated_at", "phone", "description") VALUES('Tim', '2010-07-31 10:45:29', '2010-07-31 10:45:29', '', '')[0m
+Redirected to http://localhost:3000/trainers/1
+Completed in 11ms (DB: 1) | 302 Found [http://localhost/trainers]
+
+
+Processing TrainersController#show (for 127.0.0.1 at 2010-07-31 06:45:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTrainer Load (0.2ms)[0m   [0mSELECT * FROM "trainers" WHERE ("trainers"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering trainers/show
+Completed in 77ms (View: 11, DB: 0) | 200 OK [http://localhost/trainers/1]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 06:45:31) [GET]
+  [4;36;1mTrainer Load (0.4ms)[0m   [0;1mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing TrainersController#new (for 127.0.0.1 at 2010-07-31 06:45:33) [GET]
+Rendering template within layouts/application
+Rendering trainers/new
+Rendered trainers/_form (6.6ms)
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/trainers/new]
+
+
+Processing TrainersController#create (for 127.0.0.1 at 2010-07-31 06:45:37) [POST]
+  Parameters: {"commit"=>"Create Trainer", "trainer"=>{"name"=>"Mike", "phone"=>"", "description"=>""}, "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+  [4;35;1mTrainer Create (0.3ms)[0m   [0mINSERT INTO "trainers" ("name", "created_at", "updated_at", "phone", "description") VALUES('Mike', '2010-07-31 10:45:37', '2010-07-31 10:45:37', '', '')[0m
+Redirected to http://localhost:3000/trainers/2
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/trainers]
+
+
+Processing TrainersController#show (for 127.0.0.1 at 2010-07-31 06:45:37) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTrainer Load (0.1ms)[0m   [0;1mSELECT * FROM "trainers" WHERE ("trainers"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering trainers/show
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/trainers/2]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 06:45:38) [GET]
+  [4;35;1mTrainer Load (0.5ms)[0m   [0mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 74ms (View: 68, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing TrainersController#new (for 127.0.0.1 at 2010-07-31 06:45:40) [GET]
+Rendering template within layouts/application
+Rendering trainers/new
+Rendered trainers/_form (6.6ms)
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/trainers/new]
+
+
+Processing TrainersController#create (for 127.0.0.1 at 2010-07-31 06:45:45) [POST]
+  Parameters: {"commit"=>"Create Trainer", "trainer"=>{"name"=>"Aviv", "phone"=>"", "description"=>""}, "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+  [4;36;1mTrainer Create (0.4ms)[0m   [0;1mINSERT INTO "trainers" ("name", "created_at", "updated_at", "phone", "description") VALUES('Aviv', '2010-07-31 10:45:45', '2010-07-31 10:45:45', '', '')[0m
+Redirected to http://localhost:3000/trainers/3
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/trainers]
+
+
+Processing TrainersController#show (for 127.0.0.1 at 2010-07-31 06:45:45) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mTrainer Load (0.2ms)[0m   [0mSELECT * FROM "trainers" WHERE ("trainers"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering trainers/show
+Completed in 73ms (View: 5, DB: 0) | 200 OK [http://localhost/trainers/3]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 06:45:47) [GET]
+  [4;36;1mTrainer Load (0.5ms)[0m   [0;1mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 15ms (View: 10, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 06:45:58) [GET]
+  [4;35;1mTimeSlot Load (6.4ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 56ms (View: 8, DB: 6) | 200 OK [http://localhost/time_slots/]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:46:00) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (30.0ms)
+Completed in 44ms (View: 39, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:47:20) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (8.1ms)
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/time_slots/new]
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrainers (20100730004355)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "trainers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "phone" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730004355')[0m
+Migrating to CreateMeetings (20100730011149)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "starttime" datetime, "endtime" datetime, "all_day" boolean DEFAULT 'f', "description" text, "event_series_id" integer, "trainer_meeting_id" integer, "meeting_type_id" integer, "time_slot_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011149')[0m
+Migrating to CreateTrainerMeetings (20100730011230)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "trainer_meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011230')[0m
+Migrating to CreateMeetingTypes (20100730011555)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "meeting_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011555')[0m
+Migrating to CreateTimeSlots (20100730011618)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "time_slots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" time, "day" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011618')[0m
+Migrating to CreateSchedules (20100730021556)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730021556')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("meeting_types")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("meetings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schedules")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("time_slots")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("trainer_meetings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("trainers")[0m
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:47:52) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (11.2ms)
+Completed in 42ms (View: 29, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:47:55) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (8.6ms)
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:48:55) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (12.6ms)
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:49:07) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+ERROR: compiling _run_erb_app47views47time_slots47_form46html46erb_locals_form_object RAISED compile error
+/Users/Tim/Sites/cfa/scheduler/app/views/time_slots/_form.html.erb:3: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...fer.concat(( f.buttons, :as => :select  ).to_s); @output_buf...
+                              ^
+Function body:           def _run_erb_app47views47time_slots47_form46html46erb_locals_form_object(local_assigns)
+            old_output_buffer = output_buffer;object = local_assigns[:object];form = local_assigns[:form];;@output_buffer = '';  __in_erb_template=true ;  semantic_form_for @time_slot do |f| ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.inputs ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.buttons, :as => :select  ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/Tim/Sites/cfa/scheduler/app/views/time_slots/_form.html.erb:8:in `compile!'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:20:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:19:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/partials.rb:184:in `render_partial'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:267:in `render'
+/Users/Tim/Sites/cfa/scheduler/app/views/time_slots/new.html.erb:3:in `_run_erb_app47views47time_slots47new46html46erb'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `send'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:306:in `with_template'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:30:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rails-2.3.8/lib/commands/server.rb:111
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+./script/server:3
+
+ActionView::TemplateError (compile error
+/Users/Tim/Sites/cfa/scheduler/app/views/time_slots/_form.html.erb:3: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...fer.concat(( f.buttons, :as => :select  ).to_s); @output_buf...
+                              ^) on line #3 of app/views/time_slots/_form.html.erb:
+1: <% semantic_form_for @time_slot do |f| %>
+2:   <%= f.inputs %>
+3:   <%= f.buttons, :as => :select  %>
+4: <% end %>
+
+    app/views/time_slots/_form.html.erb:8:in `compile!'
+    app/views/time_slots/new.html.erb:3
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (55.0ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:53:02) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (11.3ms)
+Completed in 85ms (View: 81, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:53:25) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (11.2ms)
+Completed in 21ms (View: 16, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:53:31) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (10.2ms)
+Completed in 77ms (View: 13, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:54:32) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+ERROR: compiling _run_erb_app47views47time_slots47_form46html46erb_locals_form_object RAISED compile error
+/Users/Tim/Sites/cfa/scheduler/app/views/time_slots/_form.html.erb:4: syntax error, unexpected ',', expecting tASSOC
+...as => :select, 1.upto(7).to_a, :include_blank => false ).to_...
+                              ^
+Function body:           def _run_erb_app47views47time_slots47_form46html46erb_locals_form_object(local_assigns)
+            old_output_buffer = output_buffer;object = local_assigns[:object];form = local_assigns[:form];;@output_buffer = '';  __in_erb_template=true ;  semantic_form_for @time_slot do |f| ; @output_buffer.concat "\n  "
+;  f.inputs do  ; @output_buffer.concat "\n    "
+; @output_buffer.concat(( f.input :start_time ).to_s); @output_buffer.concat "\n    "
+; @output_buffer.concat(( f.input :day, :as => :select, 1.upto(7).to_a, :include_blank => false ).to_s); @output_buffer.concat "\n  "
+;  end ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.buttons  ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/Tim/Sites/cfa/scheduler/app/views/time_slots/_form.html.erb:11:in `compile!'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:20:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:19:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/partials.rb:184:in `render_partial'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:267:in `render'
+/Users/Tim/Sites/cfa/scheduler/app/views/time_slots/new.html.erb:3:in `_run_erb_app47views47time_slots47new46html46erb'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `send'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:306:in `with_template'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:30:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rails-2.3.8/lib/commands/server.rb:111
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+./script/server:3
+
+ActionView::TemplateError (compile error
+/Users/Tim/Sites/cfa/scheduler/app/views/time_slots/_form.html.erb:4: syntax error, unexpected ',', expecting tASSOC
+...as => :select, 1.upto(7).to_a, :include_blank => false ).to_...
+                              ^) on line #4 of app/views/time_slots/_form.html.erb:
+1: <% semantic_form_for @time_slot do |f| %>
+2:   <% f.inputs do  %>
+3:     <%= f.input :start_time %>
+4:     <%= f.input :day, :as => :select, 1.upto(7).to_a, :include_blank => false %>
+5:   <% end %>
+6:   <%= f.buttons  %>
+7: <% end %>
+
+    app/views/time_slots/_form.html.erb:11:in `compile!'
+    app/views/time_slots/new.html.erb:3
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (117.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:54:47) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+ERROR: compiling _run_erb_app47views47time_slots47_form46html46erb_locals_form_object RAISED compile error
+/Users/Tim/Sites/cfa/scheduler/app/views/time_slots/_form.html.erb:4: syntax error, unexpected ',', expecting tASSOC
+...ay, :as => :select, 1.upto(7), :include_blank => false ).to_...
+                              ^
+Function body:           def _run_erb_app47views47time_slots47_form46html46erb_locals_form_object(local_assigns)
+            old_output_buffer = output_buffer;object = local_assigns[:object];form = local_assigns[:form];;@output_buffer = '';  __in_erb_template=true ;  semantic_form_for @time_slot do |f| ; @output_buffer.concat "\n  "
+;  f.inputs do  ; @output_buffer.concat "\n    "
+; @output_buffer.concat(( f.input :start_time ).to_s); @output_buffer.concat "\n    "
+; @output_buffer.concat(( f.input :day, :as => :select, 1.upto(7), :include_blank => false ).to_s); @output_buffer.concat "\n  "
+;  end ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.buttons  ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/Tim/Sites/cfa/scheduler/app/views/time_slots/_form.html.erb:11:in `compile!'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:20:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:19:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/partials.rb:184:in `render_partial'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:267:in `render'
+/Users/Tim/Sites/cfa/scheduler/app/views/time_slots/new.html.erb:3:in `_run_erb_app47views47time_slots47new46html46erb'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `send'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:306:in `with_template'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/renderable.rb:30:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/rails-2.3.8/lib/commands/server.rb:111
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+./script/server:3
+
+ActionView::TemplateError (compile error
+/Users/Tim/Sites/cfa/scheduler/app/views/time_slots/_form.html.erb:4: syntax error, unexpected ',', expecting tASSOC
+...ay, :as => :select, 1.upto(7), :include_blank => false ).to_...
+                              ^) on line #4 of app/views/time_slots/_form.html.erb:
+1: <% semantic_form_for @time_slot do |f| %>
+2:   <% f.inputs do  %>
+3:     <%= f.input :start_time %>
+4:     <%= f.input :day, :as => :select, 1.upto(7), :include_blank => false %>
+5:   <% end %>
+6:   <%= f.buttons  %>
+7: <% end %>
+
+    app/views/time_slots/_form.html.erb:11:in `compile!'
+    app/views/time_slots/new.html.erb:3
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (52.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 06:55:08) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (10.8ms)
+Completed in 86ms (View: 81, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 10:24:17) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+
+ActionView::TemplateError (undefined method `checkboxes_input' for #<Formtastic::SemanticFormBuilder:0x1036a1630>) on line #4 of app/views/time_slots/_form.html.erb:
+1: <% semantic_form_for @time_slot do |f| %>
+2:   <% f.inputs do  %>
+3:     <%= f.input :start_time %>
+4:     <%= f.input :day, :as => :checkboxes, :collection => 1.upto(7).to_a, :include_blank => false %>
+5:   <% end %>
+6:   <%= f.buttons  %>
+7: <% end %>
+
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:925:in `send'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:925:in `inline_input_for'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:112:in `send'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:112:in `input'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:111:in `map'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:111:in `input'
+    app/views/time_slots/_form.html.erb:4
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:990:in `field_set_and_list_wrapping'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:252:in `inputs'
+    app/views/time_slots/_form.html.erb:2
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:1323:in `semantic_form_for'
+    app/views/time_slots/_form.html.erb:1
+    app/views/time_slots/new.html.erb:3
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (127.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" LIMIT 1[0m
+  [4;36;1mTimeSlot Create (1.1ms)[0m   [0;1mINSERT INTO "time_slots" ("created_at", "updated_at", "day", "start_time") VALUES('2010-07-31 14:25:54', '2010-07-31 14:25:54', NULL, NULL)[0m

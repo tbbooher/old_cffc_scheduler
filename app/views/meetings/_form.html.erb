@@ -1,10 +1,13 @@
 <% semantic_form_for @meeting do |f| %>
    <% f.inputs do %>
+     <%= f.input :title %>
      <%= f.input :trainers, :as => :check_boxes %>
      <%= f.input :meeting_type_id, :include_blank => false %>
      <%= f.input :time_slot_id, :collection => TimeSlot.all.map{|ts| ts.start_time.strftime('%H:%M')}, :include_blank => false %>
-     <%= f.input :meeting_date, :start_year => Date.today.year %>
-     <%= f.input :duration %>
+     <%= f.input :starttime, :start_year => Date.today.year %>
+     <%= f.input :endtime, :start_year => Date.today.year %>
+     <%= f.input :description %>
+     <%= f.input :all_day %>
    <% end %>
    <%= f.buttons %>
 <% end %>

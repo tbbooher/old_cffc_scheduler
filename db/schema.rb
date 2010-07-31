@@ -11,15 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20100730021556) do
 
-  create_table "classes", :force => true do |t|
-    t.integer  "trainer_class_id"
-    t.integer  "type_id"
-    t.integer  "time_slot_id"
-    t.date     "date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "meeting_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -27,11 +18,15 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
   end
 
   create_table "meetings", :force => true do |t|
+    t.string   "title"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day",            :default => false
+    t.text     "description"
+    t.integer  "event_series_id"
     t.integer  "trainer_meeting_id"
     t.integer  "meeting_type_id"
     t.integer  "time_slot_id"
-    t.date     "meeting_date"
-    t.decimal  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
 
   create_table "time_slots", :force => true do |t|
     t.time     "start_time"
+    t.integer  "day"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

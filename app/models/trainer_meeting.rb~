@@ -1,2 +1,0 @@
-class TrainerMeeting < ActiveRecord::Base
-end
