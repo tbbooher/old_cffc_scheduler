@@ -2,7 +2,14 @@
 
 <p>
   <strong>Start Time:</strong>
-  <%=h @time_slot.start_time %>
+  <%=h @time_slot.start_time %><br />
+  <%=h "Monday" if @time_slot.monday %>
+  <%=h "Tuesday" if @time_slot.tuesday %>
+  <%=h "Wednesday" if @time_slot.wednesday %>
+  <%=h "Thursday" if @time_slot.thursday %>
+  <%=h "Friday" if @time_slot.friday %>
+  <%=h "Saturday" if @time_slot.saturday %>
+  <%=h "Sunday" if @time_slot.sunday %>
 </p>
 
 <p>

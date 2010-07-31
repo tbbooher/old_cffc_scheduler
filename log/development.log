@@ -4275,3 +4275,1823 @@ Rendering rescues/layout (internal_server_error)
 [0m
   [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" LIMIT 1[0m
   [4;36;1mTimeSlot Create (1.1ms)[0m   [0;1mINSERT INTO "time_slots" ("created_at", "updated_at", "day", "start_time") VALUES('2010-07-31 14:25:54', '2010-07-31 14:25:54', NULL, NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrainers (20100730004355)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "trainers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "phone" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730004355')[0m
+Migrating to CreateMeetings (20100730011149)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "starttime" datetime, "endtime" datetime, "all_day" boolean DEFAULT 'f', "description" text, "event_series_id" integer, "trainer_meeting_id" integer, "meeting_type_id" integer, "time_slot_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011149')[0m
+Migrating to CreateTrainerMeetings (20100730011230)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "trainer_meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011230')[0m
+Migrating to CreateMeetingTypes (20100730011555)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "meeting_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011555')[0m
+Migrating to CreateTimeSlots (20100730011618)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "time_slots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" time, "days" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011618')[0m
+Migrating to CreateSchedules (20100730021556)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730021556')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("meeting_types")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("meetings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schedules")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("time_slots")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("trainer_meetings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("trainers")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrainers (20100730004355)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "trainers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "phone" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730004355')[0m
+Migrating to CreateMeetings (20100730011149)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "starttime" datetime, "endtime" datetime, "all_day" boolean DEFAULT 'f', "description" text, "event_series_id" integer, "trainer_meeting_id" integer, "meeting_type_id" integer, "time_slot_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011149')[0m
+Migrating to CreateTrainerMeetings (20100730011230)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "trainer_meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011230')[0m
+Migrating to CreateMeetingTypes (20100730011555)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "meeting_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011555')[0m
+Migrating to CreateTimeSlots (20100730011618)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "time_slots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" time, "monday" boolean, "tuesday" boolean, "wednesday" boolean, "thursday" boolean, "friday" boolean, "saturday" boolean, "sunday" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011618')[0m
+Migrating to CreateSchedules (20100730021556)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730021556')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("meeting_types")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("meetings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schedules")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("time_slots")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("trainer_meetings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("trainers")[0m
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 10:58:13) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+
+ActionView::TemplateError (undefined method `checkboxes_input' for #<Formtastic::SemanticFormBuilder:0x1035d0a58>) on line #11 of app/views/time_slots/_form.html.erb:
+8:     <%= f.input  :friday %>
+9:     <%= f.input  :saturday %>
+10:     <%= f.input  :sunday %>
+11:     <%= f.input :day, :as => :checkboxes, :collection => 1.upto(7).to_a, :include_blank => false %>
+12:   <% end %>
+13:   <%= f.buttons  %>
+14: <% end %>
+
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:925:in `send'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:925:in `inline_input_for'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:112:in `send'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:112:in `input'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:111:in `map'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:111:in `input'
+    app/views/time_slots/_form.html.erb:11
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:990:in `field_set_and_list_wrapping'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:252:in `inputs'
+    app/views/time_slots/_form.html.erb:2
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:1323:in `semantic_form_for'
+    app/views/time_slots/_form.html.erb:1
+    app/views/time_slots/new.html.erb:3
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (145.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 10:58:26) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (16.9ms)
+Completed in 27ms (View: 22, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-07-31 10:58:40) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"0", "start_time(1i)"=>"1", "wednesday"=>"0", "tuesday"=>"0", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"06", "sunday"=>"0", "saturday"=>"0", "monday"=>"1", "start_time(5i)"=>"08", "thursday"=>"1"}}
+WARNING: Can't mass-assign these protected attributes: friday, wednesday, tuesday, sunday, saturday, monday, thursday
+  [4;36;1mTimeSlot Create (0.4ms)[0m   [0;1mINSERT INTO "time_slots" ("friday", "created_at", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "start_time") VALUES(NULL, '2010-07-31 14:58:40', NULL, NULL, '2010-07-31 14:58:40', NULL, NULL, NULL, NULL, '2001-01-01 06:08:00')[0m
+Redirected to http://localhost:3000/time_slots/1
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 10:58:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 20ms (View: 14, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:00:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 16ms (View: 10, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:00:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:01:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:02:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:02:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 11:02:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (18.2ms)
+Completed in 48ms (View: 41, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing TimeSlotsController#update (for 127.0.0.1 at 2010-07-31 11:02:24) [PUT]
+  Parameters: {"commit"=>"Save Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "id"=>"1", "time_slot"=>{"friday"=>"0", "start_time(1i)"=>"2000", "wednesday"=>"1", "tuesday"=>"0", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"06", "sunday"=>"0", "saturday"=>"1", "monday"=>"0", "start_time(5i)"=>"08", "thursday"=>"0"}}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: friday, wednesday, tuesday, sunday, saturday, monday, thursday
+Redirected to http://localhost:3000/time_slots/1
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:02:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 17ms (View: 10, DB: 0) | 200 OK [http://localhost/time_slots/1]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrainers (20100730004355)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "trainers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "phone" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730004355')[0m
+Migrating to CreateMeetings (20100730011149)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "starttime" datetime, "endtime" datetime, "all_day" boolean DEFAULT 'f', "description" text, "event_series_id" integer, "trainer_meeting_id" integer, "meeting_type_id" integer, "time_slot_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011149')[0m
+Migrating to CreateTrainerMeetings (20100730011230)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "trainer_meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011230')[0m
+Migrating to CreateMeetingTypes (20100730011555)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "meeting_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011555')[0m
+Migrating to CreateTimeSlots (20100730011618)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "time_slots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" time, "monday" boolean DEFAULT 'f', "tuesday" boolean DEFAULT 'f', "wednesday" boolean DEFAULT 'f', "thursday" boolean DEFAULT 'f', "friday" boolean DEFAULT 'f', "saturday" boolean DEFAULT 'f', "sunday" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011618')[0m
+Migrating to CreateSchedules (20100730021556)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730021556')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("meeting_types")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("meetings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schedules")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("time_slots")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("trainer_meetings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("trainers")[0m
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 11:04:19) [GET]
+  [4;36;1mTimeSlot Load (0.4ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 11:04:20) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (15.1ms)
+Completed in 23ms (View: 18, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-07-31 11:04:29) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"1", "wednesday"=>"1", "tuesday"=>"0", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"05", "sunday"=>"0", "saturday"=>"0", "monday"=>"0", "start_time(5i)"=>"06", "thursday"=>"0"}}
+WARNING: Can't mass-assign these protected attributes: friday, wednesday, tuesday, sunday, saturday, monday, thursday
+  [4;35;1mTimeSlot Create (0.3ms)[0m   [0mINSERT INTO "time_slots" ("friday", "created_at", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "start_time") VALUES('f', '2010-07-31 15:04:29', 'f', 'f', '2010-07-31 15:04:29', 'f', 'f', 'f', 'f', '2001-01-01 05:06:00')[0m
+Redirected to http://localhost:3000/time_slots/1
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:04:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-07-31 11:04:44) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"1", "wednesday"=>"1", "tuesday"=>"0", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"05", "sunday"=>"0", "saturday"=>"0", "monday"=>"0", "start_time(5i)"=>"06", "thursday"=>"0"}}
+WARNING: Can't mass-assign these protected attributes: friday, wednesday, tuesday, sunday, saturday, monday, thursday
+  [4;35;1mTimeSlot Create (0.4ms)[0m   [0mINSERT INTO "time_slots" ("friday", "created_at", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "start_time") VALUES('f', '2010-07-31 15:04:44', 'f', 'f', '2010-07-31 15:04:44', 'f', 'f', 'f', 'f', '2001-01-01 05:06:00')[0m
+Redirected to http://localhost:3000/time_slots/2
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:04:44) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://localhost/time_slots/2]
+  [4;36;1mTimeSlot Load (0.5ms)[0m   [0;1mSELECT * FROM "time_slots" LIMIT 1[0m
+  [4;35;1mTimeSlot Update (0.5ms)[0m   [0mUPDATE "time_slots" SET "updated_at" = '2010-07-31 15:05:11', "friday" = 't' WHERE "id" = 1[0m
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:05:15) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots/2]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:05:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots/2]
+  [4;36;1mTimeSlot Load (0.4ms)[0m   [0;1mSELECT * FROM "time_slots" LIMIT 1[0m
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:05:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.8ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 20ms (View: 7, DB: 1) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:06:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 16ms (View: 10, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 11:06:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (16.1ms)
+Completed in 26ms (View: 19, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 11:06:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (15.9ms)
+Completed in 25ms (View: 19, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing TimeSlotsController#update (for 127.0.0.1 at 2010-07-31 11:06:25) [PUT]
+  Parameters: {"commit"=>"Save Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "id"=>"1", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"2000", "wednesday"=>"1", "tuesday"=>"0", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"05", "sunday"=>"0", "saturday"=>"0", "monday"=>"0", "start_time(5i)"=>"06", "thursday"=>"0"}}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: friday, wednesday, tuesday, sunday, saturday, monday, thursday
+Redirected to http://localhost:3000/time_slots/1
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:06:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 11:07:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (16.5ms)
+Completed in 28ms (View: 22, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing TimeSlotsController#update (for 127.0.0.1 at 2010-07-31 11:07:17) [PUT]
+  Parameters: {"commit"=>"Save Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "id"=>"1", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"2000", "wednesday"=>"1", "tuesday"=>"0", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"05", "sunday"=>"0", "saturday"=>"0", "monday"=>"0", "start_time(5i)"=>"06", "thursday"=>"0"}}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: friday, wednesday, tuesday, sunday, saturday, monday, thursday
+Redirected to http://localhost:3000/time_slots/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:07:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 11:07:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (78.9ms)
+Completed in 88ms (View: 82, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 11:07:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (17.2ms)
+Completed in 27ms (View: 21, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing TimeSlotsController#update (for 127.0.0.1 at 2010-07-31 11:07:54) [PUT]
+  Parameters: {"commit"=>"Save Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "id"=>"1", "time_slot"=>{"friday"=>"0", "start_time(1i)"=>"2000", "wednesday"=>"1", "tuesday"=>"1", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"05", "sunday"=>"1", "saturday"=>"1", "monday"=>"1", "start_time(5i)"=>"06", "thursday"=>"1"}}
+  [4;36;1mTimeSlot Load (0.3ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: friday, wednesday, tuesday, sunday, saturday, monday, thursday
+Redirected to http://localhost:3000/time_slots/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:07:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots/1]
+  [4;35;1mTimeSlot Update (1.0ms)[0m   [0mUPDATE "time_slots" SET "updated_at" = '2010-07-31 15:17:17', "monday" = 't' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:19:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 11:19:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (16.0ms)
+Completed in 25ms (View: 19, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing TimeSlotsController#update (for 127.0.0.1 at 2010-07-31 11:19:11) [PUT]
+  Parameters: {"commit"=>"Save Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "id"=>"1", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"2000", "wednesday"=>"0", "tuesday"=>"0", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"05", "sunday"=>"0", "saturday"=>"0", "monday"=>"1", "start_time(5i)"=>"06", "thursday"=>"0"}}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Redirected to http://localhost:3000/time_slots/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:19:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:25:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 77ms (View: 71, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:26:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 17ms (View: 11, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:26:55) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #24 of app/views/interface/index.html.erb:
+21:         <h1>Meetings</h1>
+22:         <% title "Sessions" %>
+23:         <ul>
+24:           <% @meetings.each do |m| %>
+25:               <li><%= m.id %></li>
+26:           <% end %>
+27:         </ul>
+
+    app/views/interface/index.html.erb:24
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (45.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:26:58) [GET]
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 41ms (View: 22, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 11:27:02) [GET]
+  [4;35;1mTrainer Load (0.4ms)[0m   [0mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 38ms (View: 32, DB: 0) | 200 OK [http://localhost/trainers]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 11:27:59) [GET]
+  [4;36;1mTrainer Load (0.4ms)[0m   [0;1mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:28:00) [GET]
+  [4;35;1mMeetingType Load (0.5ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 97ms (View: 12, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:31:28) [GET]
+  [4;36;1mMeetingType Load (0.4ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:32:16) [GET]
+  [4;35;1mMeetingType Load (0.4ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:32:26) [GET]
+  [4;36;1mMeetingType Load (0.4ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:32:28) [GET]
+  [4;35;1mMeetingType Load (0.4ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:32:36) [GET]
+  [4;36;1mMeetingType Load (0.4ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:32:47) [GET]
+  [4;35;1mMeetingType Load (0.4ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:34:06) [GET]
+  [4;36;1mMeetingType Load (0.4ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:34:15) [GET]
+  [4;35;1mMeetingType Load (0.4ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:35:40) [GET]
+  [4;36;1mMeetingType Load (0.4ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:35:49) [GET]
+  [4;35;1mMeetingType Load (0.4ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:36:07) [GET]
+  [4;36;1mMeetingType Load (0.4ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:36:50) [GET]
+  [4;35;1mMeetingType Load (0.4ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 11:36:56) [GET]
+  [4;36;1mTimeSlot Load (0.5ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 11:36:57) [GET]
+  [4;35;1mTrainer Load (0.4ms)[0m   [0mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:36:59) [GET]
+  [4;36;1mMeetingType Load (0.4ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:37:00) [GET]
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:37:02) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #24 of app/views/interface/index.html.erb:
+21:         <h1>Meetings</h1>
+22:         <% title "Sessions" %>
+23:         <ul>
+24:           <% @meetings.each do |m| %>
+25:               <li><%= m.id %></li>
+26:           <% end %>
+27:         </ul>
+
+    app/views/interface/index.html.erb:24
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (46.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:38:16) [GET]
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:38:42) [GET]
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:38:52) [GET]
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:38:57) [GET]
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:39:17) [GET]
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:39:30) [GET]
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 11:39:33) [GET]
+  [4;36;1mTimeSlot Load (0.5ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 15ms (View: 10, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 11:39:35) [GET]
+  [4;35;1mTrainer Load (0.4ms)[0m   [0mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:39:36) [GET]
+  [4;36;1mMeetingType Load (0.4ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 11:39:37) [GET]
+  [4;35;1mMeetingType Load (0.4ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:39:37) [GET]
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:39:38) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #24 of app/views/interface/index.html.erb:
+21:         <h1>Meetings</h1>
+22:         <% title "Sessions" %>
+23:         <ul>
+24:           <% @meetings.each do |m| %>
+25:               <li><%= m.id %></li>
+26:           <% end %>
+27:         </ul>
+
+    app/views/interface/index.html.erb:24
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:39:52) [GET]
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:39:57) [GET]
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:40:02) [GET]
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:40:08) [GET]
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:40:13) [GET]
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:40:18) [GET]
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:40:22) [GET]
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:40:27) [GET]
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:40:38) [GET]
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 11:41:04) [GET]
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/meetings]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:41:17) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #24 of app/views/interface/index.html.erb:
+21:         <h1>Meetings</h1>
+22:         <% title "Sessions" %>
+23:         <ul>
+24:           <% @meetings.each do |m| %>
+25:               <li><%= m.id %></li>
+26:           <% end %>
+27:         </ul>
+
+    app/views/interface/index.html.erb:24
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:42:24) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:42:39) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:42:49) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:43:03) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:45:23) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:49:33) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:54:59) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:55:20) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 51ms (View: 50, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 11:55:21) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280591721265"}
+
+ActionController::RoutingError (No route matches "/events/get_events" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 11:55:26) [GET]
+  Parameters: {"end"=>"1281240000", "start"=>"1277611200", "_"=>"1280591726018"}
+
+ActionController::RoutingError (No route matches "/events/get_events" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing InterfaceController#new (for 127.0.0.1 at 2010-07-31 11:55:33) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+WARNING: Can't mass-assign these protected attributes: endtime, period
+Rendering interface/new
+
+ActionView::TemplateError (uninitialized constant ActionView::Base::CompiledTemplates::Event) on line #28 of app/views/interface/_form.html.erb:
+25: </p>
+26: <p>
+27:   <%=f.label :period, "Repeats" %>
+28:   <%=f.select :period, Event::REPEATS,{}, :onchange => "showPeriodAndFrequency(this.value);" %>
+29: </p>
+30: <p id = "frequency" style = "display:none;">
+31:   <%=f.label :frequency, "Repeat every" %>
+
+    app/views/interface/_form.html.erb:28
+    app/views/interface/_form.html.erb:1
+    app/views/interface/new.js.rjs:1:in `_run_rjs_app47views47interface47new46js46rjs'
+    app/views/interface/new.js.rjs:1:in `_run_rjs_app47views47interface47new46js46rjs'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (63.9ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 11:56:08) [GET]
+  [4;36;1mTimeSlot Load (0.6ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 11:56:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (16.6ms)
+Completed in 33ms (View: 27, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 11:56:16) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280591775952"}
+
+ActionController::RoutingError (No route matches "/events/get_events" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:56:56) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 21ms (View: 20, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 11:56:57) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280591817287"}
+
+ActionController::RoutingError (No route matches "/events/get_events" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 11:57:05) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 11:57:05) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280591825774"}
+
+ActionController::RoutingError (No route matches "/events/get_events" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 11:58:48) [GET]
+  Parameters: {"end"=>"1281240000", "start"=>"1277611200", "_"=>"1280591928271"}
+
+ActionController::RoutingError (No route matches "/events/get_events" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 11:58:54) [GET]
+  [4;36;1mTimeSlot Load (0.7ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 54ms (View: 16, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 11:58:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (119.6ms)
+Completed in 140ms (View: 132, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing TimeSlotsController#update (for 127.0.0.1 at 2010-07-31 11:59:08) [PUT]
+  Parameters: {"commit"=>"Save Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "id"=>"1", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"2000", "wednesday"=>"1", "tuesday"=>"1", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"06", "sunday"=>"0", "saturday"=>"0", "monday"=>"1", "start_time(5i)"=>"00", "thursday"=>"1"}}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+  [4;35;1mTimeSlot Update (0.4ms)[0m   [0mUPDATE "time_slots" SET "start_time" = '2000-01-01 06:00:00', "updated_at" = '2010-07-31 15:59:08', "tuesday" = 't', "wednesday" = 't', "thursday" = 't' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/time_slots/1
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 11:59:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 30ms (View: 24, DB: 0) | 200 OK [http://localhost/time_slots/1]
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrainers (20100730004355)
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "trainers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "phone" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730004355')[0m
+Migrating to CreateMeetings (20100730011149)
+  [4;35;1mSQL (0.8ms)[0m   [0mCREATE TABLE "meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "starttime" datetime, "endtime" datetime, "all_day" boolean DEFAULT 'f', "description" text, "event_series_id" integer, "trainer_meeting_id" integer, "meeting_type_id" integer, "time_slot_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011149')[0m
+Migrating to CreateTrainerMeetings (20100730011230)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "trainer_meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011230')[0m
+Migrating to CreateMeetingTypes (20100730011555)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "meeting_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011555')[0m
+Migrating to CreateTimeSlots (20100730011618)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "time_slots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" time, "monday" boolean DEFAULT 'f', "tuesday" boolean DEFAULT 'f', "wednesday" boolean DEFAULT 'f', "thursday" boolean DEFAULT 'f', "friday" boolean DEFAULT 'f', "saturday" boolean DEFAULT 'f', "sunday" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011618')[0m
+Migrating to CreateSchedules (20100730021556)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730021556')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("meeting_types")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("meetings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schedules")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("time_slots")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("trainer_meetings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("trainers")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrainers (20100730004355)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "trainers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "phone" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730004355')[0m
+Migrating to CreateMeetings (20100730011149)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "starttime" datetime, "endtime" datetime, "all_day" boolean DEFAULT 'f', "description" text, "event_series_id" integer, "trainer_meeting_id" integer, "meeting_type_id" integer, "time_slot_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011149')[0m
+Migrating to CreateTrainerMeetings (20100730011230)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "trainer_meetings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011230')[0m
+Migrating to CreateMeetingTypes (20100730011555)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "meeting_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011555')[0m
+Migrating to CreateTimeSlots (20100730011618)
+  [4;35;1mSQL (1.6ms)[0m   [0mCREATE TABLE "time_slots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" time, "title" varchar(255), "monday" boolean DEFAULT 'f', "tuesday" boolean DEFAULT 'f', "wednesday" boolean DEFAULT 'f', "thursday" boolean DEFAULT 'f', "friday" boolean DEFAULT 'f', "saturday" boolean DEFAULT 'f', "sunday" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011618')[0m
+Migrating to CreateSchedules (20100730021556)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trainer_id" integer, "meeting_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730021556')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("meeting_types")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("meetings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schedules")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("time_slots")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("trainer_meetings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("trainers")[0m
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 12:01:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.1ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find TimeSlot with ID=1):
+  app/controllers/time_slots_controller.rb:25:in `edit'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (101.5ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 12:01:10) [GET]
+  [4;35;1mTimeSlot Load (0.4ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 38ms (View: 33, DB: 0) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 12:01:11) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (77.5ms)
+Completed in 112ms (View: 107, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-07-31 12:01:33) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"1", "wednesday"=>"1", "tuesday"=>"1", "title"=>"Morning 6AM", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"06", "sunday"=>"0", "saturday"=>"0", "monday"=>"1", "start_time(5i)"=>"00", "thursday"=>"1"}}
+  [4;36;1mTimeSlot Create (0.4ms)[0m   [0;1mINSERT INTO "time_slots" ("friday", "created_at", "title", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "start_time") VALUES('t', '2010-07-31 16:01:33', 'Morning 6AM', 't', 't', '2010-07-31 16:01:33', 't', 'f', 'f', 't', '2001-01-01 06:00:00')[0m
+Redirected to http://localhost:3000/time_slots/1
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 12:01:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 19ms (View: 13, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 12:01:37) [GET]
+  [4;36;1mTimeSlot Load (0.5ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 12:01:38) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (16.9ms)
+Completed in 83ms (View: 21, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#edit (for 127.0.0.1 at 2010-07-31 12:01:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/edit
+Rendered time_slots/_form (16.7ms)
+Completed in 30ms (View: 24, DB: 0) | 200 OK [http://localhost/time_slots/1/edit]
+
+
+Processing TimeSlotsController#update (for 127.0.0.1 at 2010-07-31 12:01:47) [PUT]
+  Parameters: {"commit"=>"Save Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "id"=>"1", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"2000", "wednesday"=>"1", "tuesday"=>"1", "title"=>"Morning 6AM", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"06", "sunday"=>"0", "saturday"=>"0", "monday"=>"1", "start_time(5i)"=>"00", "thursday"=>"1"}}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Redirected to http://localhost:3000/time_slots/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 12:01:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 12:01:49) [GET]
+  [4;36;1mTimeSlot Load (0.5ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 14ms (View: 9, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 12:01:51) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (16.1ms)
+Completed in 26ms (View: 20, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-07-31 12:02:09) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"1", "wednesday"=>"1", "tuesday"=>"1", "title"=>"Evening Time Slot", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"17", "sunday"=>"0", "saturday"=>"0", "monday"=>"1", "start_time(5i)"=>"00", "thursday"=>"1"}}
+  [4;35;1mTimeSlot Create (0.4ms)[0m   [0mINSERT INTO "time_slots" ("friday", "created_at", "title", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "start_time") VALUES('t', '2010-07-31 16:02:09', 'Evening Time Slot', 't', 't', '2010-07-31 16:02:09', 't', 'f', 'f', 't', '2001-01-01 17:00:00')[0m
+Redirected to http://localhost:3000/time_slots/2
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 12:02:09) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/time_slots/2]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 12:02:12) [GET]
+  [4;35;1mTimeSlot Load (0.6ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 12:02:13) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (16.1ms)
+Completed in 26ms (View: 21, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-07-31 12:02:25) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"0", "start_time(1i)"=>"1", "wednesday"=>"0", "tuesday"=>"0", "title"=>"Saturday 9am", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"09", "sunday"=>"0", "saturday"=>"1", "monday"=>"0", "start_time(5i)"=>"00", "thursday"=>"0"}}
+  [4;36;1mTimeSlot Create (0.4ms)[0m   [0;1mINSERT INTO "time_slots" ("friday", "created_at", "title", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "start_time") VALUES('f', '2010-07-31 16:02:25', 'Saturday 9am', 'f', 'f', '2010-07-31 16:02:25', 'f', 't', 'f', 'f', '2001-01-01 09:00:00')[0m
+Redirected to http://localhost:3000/time_slots/3
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 12:02:25) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 17ms (View: 9, DB: 0) | 200 OK [http://localhost/time_slots/3]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 12:02:28) [GET]
+  [4;36;1mTimeSlot Load (0.6ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 12:02:50) [GET]
+  [4;35;1mTimeSlot Load (0.6ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 12:03:10) [GET]
+  [4;36;1mTimeSlot Load (0.7ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 12:03:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 71ms (View: 65, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 12:03:18) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/time_slots/3]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 12:08:28) [GET]
+  [4;36;1mTimeSlot Load (0.7ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 39ms (View: 28, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 12:09:17) [GET]
+  [4;36;1mTimeSlot Load (0.7ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 38ms (View: 27, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 12:09:24) [GET]
+  [4;35;1mTrainer Load (0.5ms)[0m   [0mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 49ms (View: 9, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing TrainersController#new (for 127.0.0.1 at 2010-07-31 12:09:25) [GET]
+Rendering template within layouts/application
+Rendering trainers/new
+Rendered trainers/_form (31.8ms)
+Completed in 104ms (View: 98, DB: 0) | 200 OK [http://localhost/trainers/new]
+
+
+Processing TrainersController#create (for 127.0.0.1 at 2010-07-31 12:09:29) [POST]
+  Parameters: {"commit"=>"Create Trainer", "trainer"=>{"name"=>"Aviv", "phone"=>"", "description"=>""}, "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+  [4;36;1mTrainer Create (0.5ms)[0m   [0;1mINSERT INTO "trainers" ("name", "created_at", "updated_at", "phone", "description") VALUES('Aviv', '2010-07-31 16:09:29', '2010-07-31 16:09:29', '', '')[0m
+Redirected to http://localhost:3000/trainers/1
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/trainers]
+
+
+Processing TrainersController#show (for 127.0.0.1 at 2010-07-31 12:09:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTrainer Load (0.2ms)[0m   [0mSELECT * FROM "trainers" WHERE ("trainers"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering trainers/show
+Completed in 36ms (View: 30, DB: 0) | 200 OK [http://localhost/trainers/1]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 12:09:32) [GET]
+  [4;36;1mTrainer Load (0.5ms)[0m   [0;1mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing TrainersController#new (for 127.0.0.1 at 2010-07-31 12:09:34) [GET]
+Rendering template within layouts/application
+Rendering trainers/new
+Rendered trainers/_form (6.9ms)
+Completed in 71ms (View: 11, DB: 0) | 200 OK [http://localhost/trainers/new]
+
+
+Processing TrainersController#create (for 127.0.0.1 at 2010-07-31 12:09:37) [POST]
+  Parameters: {"commit"=>"Create Trainer", "trainer"=>{"name"=>"Scott", "phone"=>"", "description"=>""}, "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+  [4;35;1mTrainer Create (0.4ms)[0m   [0mINSERT INTO "trainers" ("name", "created_at", "updated_at", "phone", "description") VALUES('Scott', '2010-07-31 16:09:37', '2010-07-31 16:09:37', '', '')[0m
+Redirected to http://localhost:3000/trainers/2
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/trainers]
+
+
+Processing TrainersController#show (for 127.0.0.1 at 2010-07-31 12:09:37) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTrainer Load (0.1ms)[0m   [0;1mSELECT * FROM "trainers" WHERE ("trainers"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering trainers/show
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/trainers/2]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 12:09:42) [GET]
+  [4;35;1mMeetingType Load (0.4ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 36ms (View: 21, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#new (for 127.0.0.1 at 2010-07-31 12:09:44) [GET]
+Rendering template within layouts/application
+Rendering meeting_types/new
+Rendered meeting_types/_form (5.8ms)
+Completed in 77ms (View: 73, DB: 0) | 200 OK [http://localhost/meeting_types/new]
+
+
+Processing MeetingTypesController#create (for 127.0.0.1 at 2010-07-31 12:09:48) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "meeting_type"=>{"name"=>"Elements"}}
+  [4;36;1mMeetingType Create (0.3ms)[0m   [0;1mINSERT INTO "meeting_types" ("name", "created_at", "updated_at") VALUES('Elements', '2010-07-31 16:09:48', '2010-07-31 16:09:48')[0m
+Redirected to http://localhost:3000/meeting_types/1
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#show (for 127.0.0.1 at 2010-07-31 12:09:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mMeetingType Load (0.1ms)[0m   [0mSELECT * FROM "meeting_types" WHERE ("meeting_types"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering meeting_types/show
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/meeting_types/1]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 12:09:53) [GET]
+  [4;36;1mMeetingType Load (0.5ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#new (for 127.0.0.1 at 2010-07-31 12:09:54) [GET]
+Rendering template within layouts/application
+Rendering meeting_types/new
+Rendered meeting_types/_form (4.6ms)
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/meeting_types/new]
+
+
+Processing MeetingTypesController#create (for 127.0.0.1 at 2010-07-31 12:09:59) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "meeting_type"=>{"name"=>"WOD"}}
+  [4;35;1mMeetingType Create (0.3ms)[0m   [0mINSERT INTO "meeting_types" ("name", "created_at", "updated_at") VALUES('WOD', '2010-07-31 16:09:59', '2010-07-31 16:09:59')[0m
+Redirected to http://localhost:3000/meeting_types/2
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/meeting_types]
+
+
+Processing MeetingTypesController#show (for 127.0.0.1 at 2010-07-31 12:09:59) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mMeetingType Load (0.1ms)[0m   [0;1mSELECT * FROM "meeting_types" WHERE ("meeting_types"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering meeting_types/show
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/meeting_types/2]
+
+
+Processing MeetingTypesController#index (for 127.0.0.1 at 2010-07-31 12:10:01) [GET]
+  [4;35;1mMeetingType Load (0.5ms)[0m   [0mSELECT * FROM "meeting_types" [0m
+Rendering template within layouts/application
+Rendering meeting_types/index
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/meeting_types]
+
+
+Processing MeetingsController#index (for 127.0.0.1 at 2010-07-31 12:10:04) [GET]
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" [0m
+Rendering template within layouts/application
+Rendering meetings/index
+Completed in 59ms (View: 23, DB: 1) | 200 OK [http://localhost/meetings]
+
+
+Processing MeetingsController#new (for 127.0.0.1 at 2010-07-31 12:10:07) [GET]
+Rendering template within layouts/application
+Rendering meetings/new
+  [4;35;1mTrainer Load (0.2ms)[0m   [0mSELECT * FROM "trainers" [0m
+  [4;36;1mTrainer Load (0.2ms)[0m   [0;1mSELECT "trainers".id FROM "trainers" INNER JOIN "schedules" ON "trainers".id = "schedules".trainer_id WHERE (("schedules".meeting_id = NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "trainers".id FROM "trainers" INNER JOIN "schedules" ON "trainers".id = "schedules".trainer_id WHERE (("schedules".meeting_id = NULL)) [0m
+DEPRECATION WARNING: The _id way of doing things is deprecated. Please use the association method (meeting_type). (called from send at /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/../lib/formtastic.rb:112)
+  [4;36;1mMeetingType Load (0.2ms)[0m   [0;1mSELECT * FROM "meeting_types" [0m
+  [4;35;1mTimeSlot Load (0.3ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendered meetings/_form (149.6ms)
+Completed in 166ms (View: 159, DB: 1) | 200 OK [http://localhost/meetings/new]
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 12:10:26) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 34ms (View: 33, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 12:10:27) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280592627275"}
+
+ActionController::RoutingError (No route matches "/events/get_events" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 12:10:34) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 12:10:35) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280592635071"}
+
+ActionController::RoutingError (No route matches "/events/get_events" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 12:17:59) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 12:18:00) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280593080016"}
+
+ActionController::RoutingError (No route matches "/events/get_events" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 12:19:54) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing MeetingsController#show (for 127.0.0.1 at 2010-07-31 12:19:55) [GET]
+  Parameters: {"id"=>"get_meetings", "end"=>"1280635200", "start"=>"1280030400", "_"=>"1280593195500"}
+  [4;36;1mMeeting Load (0.2ms)[0m   [0;1mSELECT * FROM "meetings" WHERE ("meetings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Meeting with ID=get_meetings):
+  app/controllers/meetings_controller.rb:7:in `show'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (46.7ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 12:24:30) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing MeetingsController#show (for 127.0.0.1 at 2010-07-31 12:24:30) [GET]
+  Parameters: {"id"=>"get_meetings", "end"=>"1280635200", "start"=>"1280030400", "_"=>"1280593470737"}
+Rendering template within layouts/application
+Rendering meetings/show
+
+ActionView::TemplateError (undefined method `trainer_meeting_id' for nil:NilClass) on line #5 of app/views/meetings/show.html.erb:
+2: 
+3: <p>
+4:   <strong>Trainer Meeting:</strong>
+5:   <%=h @meeting.trainer_meeting_id %>
+6: </p>
+7: <p>
+8:   <strong>Type:</strong>
+
+    app/views/meetings/show.html.erb:5
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (51.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 12:26:01) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing MeetingsController#show (for 127.0.0.1 at 2010-07-31 12:26:02) [GET]
+  Parameters: {"id"=>"get_meetings", "end"=>"1280635200", "start"=>"1280030400", "_"=>"1280593562403"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create, destroy, edit, get_meetings, index, move, new, resize, and update):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 12:30:24) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing MeetingsController#show (for 127.0.0.1 at 2010-07-31 12:30:24) [GET]
+  Parameters: {"id"=>"get_meetings", "end"=>"1280635200", "start"=>"1280030400", "_"=>"1280593824910"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create, destroy, edit, get_meetings, index, move, new, resize, and update):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mMeeting Load (0.2ms)[0m   [0mSELECT * FROM "meetings" LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: endtime, period
+
+
+Processing InterfaceController#index (for 127.0.0.1 at 2010-07-31 12:39:38) [GET]
+Rendering template within layouts/application
+Rendering interface/index
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/interface]
+
+
+Processing MeetingsController#show (for 127.0.0.1 at 2010-07-31 12:39:38) [GET]
+  Parameters: {"id"=>"get_meetings", "end"=>"1280635200", "start"=>"1280030400", "_"=>"1280594378819"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create, destroy, edit, get_meetings, index, move, new, resize, and update):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)

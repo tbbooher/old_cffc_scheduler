@@ -1,7 +1,4 @@
 <% semantic_form_for @time_slot do |f| %>
-  <% f.inputs do  %>
-    <%= f.input :start_time %>
-    <%= f.input :day, :as => :checkboxes, :collection => 1.upto(7).to_a, :include_blank => false %>
-  <% end %>
+  <%= f.inputs %>
   <%= f.buttons  %>
 <% end %>

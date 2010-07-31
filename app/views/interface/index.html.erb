@@ -18,17 +18,14 @@
 
     <div class="aplicationContent">
       <div class="appRightContent">
-        <h1>Meetings</h1>
-        <% title "Sessions" %>
+        <% title "CFA Trainer Schedule" %>
+	<% unless @meetings.nil? %>
         <ul>
           <% @meetings.each do |m| %>
               <li><%= m.id %></li>
           <% end %>
         </ul>
-
-        <center>
-          <h1>CFA Scheduling application</h1>
-        </center>
+	<% end %>
 
         <p>
           <%= link_to_remote 'Create Event', :url => {:action => :new}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %>
@@ -54,7 +51,7 @@
                         else
                             $('#loading').hide();
                     },
-                    events: "/events/get_events",
+                    events: "/meetings/get_meetings",
                     timeFormat: 'h:mm t{ - h:mm t} ',
                     dragOpacity: "0.5",
                     eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {

@@ -40,7 +40,14 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
 
   create_table "time_slots", :force => true do |t|
     t.time     "start_time"
-    t.integer  "day"
+    t.string   "title"
+    t.boolean  "monday",     :default => false
+    t.boolean  "tuesday",    :default => false
+    t.boolean  "wednesday",  :default => false
+    t.boolean  "thursday",   :default => false
+    t.boolean  "friday",     :default => false
+    t.boolean  "saturday",   :default => false
+    t.boolean  "sunday",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
