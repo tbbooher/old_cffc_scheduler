@@ -6,7 +6,7 @@ function moveEvent(event, dayDelta, minuteDelta, allDay){
         data: 'id=' + event.id + '&title=' + event.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay,
         dataType: 'script',
         type: 'post',
-        url: "/meetings/move"
+        url: "/events/move"
     });
 }
 
@@ -15,7 +15,7 @@ function resizeEvent(event, dayDelta, minuteDelta){
         data: 'id=' + event.id + '&title=' + event.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta,
         dataType: 'script',
         type: 'post',
-        url: "/meetings/resize"
+        url: "/events/resize"
     });
 }
 
@@ -50,7 +50,7 @@ function editEvent(event_id){
         data: 'id=' + event_id,
         dataType: 'script',
         type: 'get',
-        url: "/meetings/edit"
+        url: "/events/edit"
     });
 }
 
@@ -59,7 +59,7 @@ function deleteEvent(event_id, delete_all){
         data: 'id=' + event_id + '&delete_all='+delete_all,
         dataType: 'script',
         type: 'post',
-        url: "/meetings/destroy"
+        url: "/events/destroy"
     });
 }
 
@@ -86,4 +86,8 @@ function showPeriodAndFrequency(value){
         default:
             $('#frequency').hide();
     }
+    
+    
+    
+    
 }

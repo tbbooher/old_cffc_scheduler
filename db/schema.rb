@@ -11,29 +11,40 @@
 
 ActiveRecord::Schema.define(:version => 20100730021556) do
 
-  create_table "meeting_types", :force => true do |t|
+  create_table "event_series", :force => true do |t|
+    t.integer  "frequency",  :default => 1
+    t.string   "period",     :default => "monthly"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day",    :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "meetings", :force => true do |t|
+  create_table "events", :force => true do |t|
     t.string   "title"
     t.datetime "starttime"
     t.datetime "endtime"
-    t.boolean  "all_day",            :default => false
-    t.text     "description"
-    t.integer  "event_series_id"
-    t.integer  "trainer_meeting_id"
-    t.integer  "meeting_type_id"
+    t.boolean  "all_day",         :default => false
+    t.integer  "event_type_id"
     t.integer  "time_slot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "event_series_id"
   end
+
+  add_index "events", ["event_series_id"], :name => "index_events_on_event_series_id"
 
   create_table "schedules", :force => true do |t|
     t.integer  "trainer_id"
-    t.integer  "meeting_id"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,13 +59,6 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
     t.boolean  "friday",     :default => false
     t.boolean  "saturday",   :default => false
     t.boolean  "sunday",     :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "trainer_meetings", :force => true do |t|
-    t.integer  "trainer_id"
-    t.integer  "meeting_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,5 +1,5 @@
 class Schedule < ActiveRecord::Base
-  attr_accessible :trainer_id, :meeting_id
+  attr_accessible :trainer_id, :event_id
   belongs_to :trainer
-  belongs_to :meeting
+  belongs_to :event
 end
