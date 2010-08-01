@@ -14,7 +14,7 @@ class EventTypesController < ApplicationController
   def create
     @event_type = EventType.new(params[:event_type])
     if @event_type.save
-      flash[:notice] = "Successfully created meeting type."
+      flash[:notice] = "Successfully created Event Type."
       redirect_to @event_type
     else
       render :action => 'new'
@@ -28,7 +28,7 @@ class EventTypesController < ApplicationController
   def update
     @event_type = EventType.find(params[:id])
     if @event_type.update_attributes(params[:event_type])
-      flash[:notice] = "Successfully updated meeting type."
+      flash[:notice] = "Successfully updated Event Type."
       redirect_to @event_type
     else
       render :action => 'edit'

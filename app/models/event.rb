@@ -15,7 +15,8 @@
 #
 
 class Event < ActiveRecord::Base
-  attr_accessible :trainer_meeting_id, :event_type_id, :time_slot_id, :meeting_date, :duration, :trainer_ids, :period, :frequency, :commit_button
+  attr_accessor :period, :frequency, :commit_button
+  attr_accessible :title, :starttime, :endtime, :all_day, :event_type_id, :time_slot_id, :description, :event_series_id, :trainer_ids
   has_many :schedules
   has_many :trainers, :through => :schedules
   belongs_to :time_slot

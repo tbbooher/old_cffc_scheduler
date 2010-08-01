@@ -1,5 +1,8 @@
-<% remote_form_for @event, :url => {:action => :create}, :before => "$('#creating_events').show();", :complete => "$('#creating_events').hide();" do |f| %>
-<p>
+<% semantic_form_remote_for @event, :url => {:action => :create}, :before => "$('#creating_events').show();", :complete => "$('#creating_events').hide();" do |f| %>
+    <%= f.inputs %>
+    <%= f.buttons %>
+    <% if false %>
+    <p>
   <%=f.label :title %>
   <br/>
   <%=f.text_field :title %>
@@ -35,4 +38,5 @@
 <p>
   <%=f.submit 'Create' %> <span id = "creating_events" style = "display:none;">Creating, Please wait...</span>
 </p>
+        <% end %>
 <%end %>

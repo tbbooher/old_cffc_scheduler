@@ -7391,3 +7391,883 @@ Processing EventTypesController#index (for 127.0.0.1 at 2010-07-31 23:22:25) [GE
 Rendering template within layouts/application
 Rendering event_types/index
 Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/event_types]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 23:23:33) [GET]
+  [4;36;1mTimeSlot Load (0.4ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 23:23:35) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (17.2ms)
+Completed in 33ms (View: 28, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-07-31 23:23:53) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"1", "wednesday"=>"1", "tuesday"=>"1", "title"=>"6AM WOD", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"06", "sunday"=>"0", "saturday"=>"0", "monday"=>"1", "start_time(5i)"=>"00", "thursday"=>"1"}}
+  [4;35;1mTimeSlot Create (0.4ms)[0m   [0mINSERT INTO "time_slots" ("friday", "created_at", "title", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "start_time") VALUES('t', '2010-08-01 03:23:53', '6AM WOD', 't', 't', '2010-08-01 03:23:53', 't', 'f', 'f', 't', '2001-01-01 06:00:00')[0m
+Redirected to http://localhost:3000/time_slots/1
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 23:23:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-07-31 23:23:56) [GET]
+  [4;35;1mTimeSlot Load (0.5ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 14ms (View: 9, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-07-31 23:23:58) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+Rendered time_slots/_form (16.2ms)
+Completed in 25ms (View: 20, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-07-31 23:24:08) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"0", "start_time(1i)"=>"1", "wednesday"=>"0", "tuesday"=>"0", "title"=>"Saturday 9am", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"09", "sunday"=>"0", "saturday"=>"1", "monday"=>"0", "start_time(5i)"=>"00", "thursday"=>"0"}}
+  [4;36;1mTimeSlot Create (0.4ms)[0m   [0;1mINSERT INTO "time_slots" ("friday", "created_at", "title", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "start_time") VALUES('f', '2010-08-01 03:24:08', 'Saturday 9am', 'f', 'f', '2010-08-01 03:24:08', 'f', 't', 'f', 'f', '2001-01-01 09:00:00')[0m
+Redirected to http://localhost:3000/time_slots/2
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-07-31 23:24:08) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTimeSlot Load (0.2ms)[0m   [0mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/time_slots/2]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 23:24:11) [GET]
+  [4;36;1mTrainer Load (0.5ms)[0m   [0;1mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 70ms (View: 65, DB: 0) | 200 OK [http://localhost/trainers]
+
+
+Processing TrainersController#new (for 127.0.0.1 at 2010-07-31 23:24:12) [GET]
+Rendering template within layouts/application
+Rendering trainers/new
+Rendered trainers/_form (7.5ms)
+Completed in 23ms (View: 18, DB: 0) | 200 OK [http://localhost/trainers/new]
+
+
+Processing TrainersController#create (for 127.0.0.1 at 2010-07-31 23:24:17) [POST]
+  Parameters: {"commit"=>"Create Trainer", "trainer"=>{"name"=>"Aviv", "phone"=>"", "description"=>""}, "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+  [4;35;1mTrainer Create (0.4ms)[0m   [0mINSERT INTO "trainers" ("name", "created_at", "updated_at", "phone", "description") VALUES('Aviv', '2010-08-01 03:24:17', '2010-08-01 03:24:17', '', '')[0m
+Redirected to http://localhost:3000/trainers/1
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/trainers]
+
+
+Processing TrainersController#show (for 127.0.0.1 at 2010-07-31 23:24:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTrainer Load (0.1ms)[0m   [0;1mSELECT * FROM "trainers" WHERE ("trainers"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering trainers/show
+Completed in 16ms (View: 10, DB: 0) | 200 OK [http://localhost/trainers/1]
+
+
+Processing TrainersController#index (for 127.0.0.1 at 2010-07-31 23:24:19) [GET]
+  [4;35;1mTrainer Load (0.5ms)[0m   [0mSELECT * FROM "trainers" [0m
+Rendering template within layouts/application
+Rendering trainers/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/trainers]
+
+
+Processing TrainersController#new (for 127.0.0.1 at 2010-07-31 23:24:20) [GET]
+Rendering template within layouts/application
+Rendering trainers/new
+Rendered trainers/_form (6.8ms)
+Completed in 72ms (View: 66, DB: 0) | 200 OK [http://localhost/trainers/new]
+
+
+Processing TrainersController#create (for 127.0.0.1 at 2010-07-31 23:24:25) [POST]
+  Parameters: {"commit"=>"Create Trainer", "trainer"=>{"name"=>"Scott", "phone"=>"", "description"=>""}, "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+  [4;36;1mTrainer Create (0.4ms)[0m   [0;1mINSERT INTO "trainers" ("name", "created_at", "updated_at", "phone", "description") VALUES('Scott', '2010-08-01 03:24:25', '2010-08-01 03:24:25', '', '')[0m
+Redirected to http://localhost:3000/trainers/2
+Completed in 26ms (DB: 0) | 302 Found [http://localhost/trainers]
+
+
+Processing TrainersController#show (for 127.0.0.1 at 2010-07-31 23:24:25) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTrainer Load (0.2ms)[0m   [0mSELECT * FROM "trainers" WHERE ("trainers"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering trainers/show
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/trainers/2]
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-07-31 23:24:31) [GET]
+  [4;36;1mEventType Load (0.4ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/event_types]
+
+
+Processing EventTypesController#new (for 127.0.0.1 at 2010-07-31 23:24:34) [GET]
+Rendering template within layouts/application
+Rendering event_types/new
+Rendered event_types/_form (5.3ms)
+Completed in 20ms (View: 16, DB: 0) | 200 OK [http://localhost/event_types/new]
+
+
+Processing EventTypesController#create (for 127.0.0.1 at 2010-07-31 23:25:45) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event_type"=>{"name"=>"WOD"}}
+  [4;35;1mEventType Create (0.3ms)[0m   [0mINSERT INTO "event_types" ("name", "created_at", "updated_at") VALUES('WOD', '2010-08-01 03:25:45', '2010-08-01 03:25:45')[0m
+Redirected to http://localhost:3000/event_types/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/event_types]
+
+
+Processing EventTypesController#show (for 127.0.0.1 at 2010-07-31 23:25:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEventType Load (0.1ms)[0m   [0;1mSELECT * FROM "event_types" WHERE ("event_types"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering event_types/show
+Completed in 74ms (View: 69, DB: 0) | 200 OK [http://localhost/event_types/1]
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-07-31 23:25:47) [GET]
+  [4;35;1mEventType Load (0.5ms)[0m   [0mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/event_types]
+
+
+Processing EventTypesController#new (for 127.0.0.1 at 2010-07-31 23:25:48) [GET]
+Rendering template within layouts/application
+Rendering event_types/new
+Rendered event_types/_form (4.6ms)
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://localhost/event_types/new]
+
+
+Processing EventTypesController#create (for 127.0.0.1 at 2010-07-31 23:25:58) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event_type"=>{"name"=>"Elements"}}
+  [4;36;1mEventType Create (0.3ms)[0m   [0;1mINSERT INTO "event_types" ("name", "created_at", "updated_at") VALUES('Elements', '2010-08-01 03:25:58', '2010-08-01 03:25:58')[0m
+Redirected to http://localhost:3000/event_types/2
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/event_types]
+
+
+Processing EventTypesController#show (for 127.0.0.1 at 2010-07-31 23:25:58) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEventType Load (0.1ms)[0m   [0mSELECT * FROM "event_types" WHERE ("event_types"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering event_types/show
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/event_types/2]
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-07-31 23:26:01) [GET]
+  [4;36;1mEventType Load (0.5ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/event_types]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:26:05) [GET]
+
+ActionController::RoutingError (No route matches "/meetings" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-07-31 23:26:39) [GET]
+  [4;35;1mEventType Load (0.5ms)[0m   [0mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://localhost/event_types]
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:26:41) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:26:42) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280633202446"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280633202446&start=1280030400&end=1280635200]
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-07-31 23:26:45) [GET]
+  [4;35;1mEventType Load (0.5ms)[0m   [0mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 14ms (View: 9, DB: 1) | 200 OK [http://localhost/event_types]
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:26:47) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:26:48) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280633208211"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 8ms (View: 1, DB: 1) | 200 OK [http://localhost/events/get_events?_=1280633208211&start=1280030400&end=1280635200]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:26:51) [GET]
+  Parameters: {"end"=>"1281240000", "start"=>"1277611200", "_"=>"1280633211294"}
+  [4;35;1mEvent Load (0.6ms)[0m   [0mSELECT * FROM "events" WHERE (starttime >= '2010-06-27 00:00:00' and endtime <= '2010-08-08 00:00:00') [0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/events/get_events?_=1280633211294&start=1277611200&end=1281240000]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:26:53) [GET]
+
+ActionController::RoutingError (No route matches "/interface" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:27:03) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280633222995"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280633222995&start=1280030400&end=1280635200]
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:27:04) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 70ms (View: 69, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:27:04) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280633224714"}
+  [4;35;1mEvent Load (0.5ms)[0m   [0mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280633224714&start=1280030400&end=1280635200]
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:27:07) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:27:07) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280633227908"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280633227908&start=1280030400&end=1280635200]
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-07-31 23:27:09) [GET]
+  [4;35;1mEventType Load (0.5ms)[0m   [0mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/event_types]
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:27:11) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:27:12) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280633232192"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280633232192&start=1280030400&end=1280635200]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-07-31 23:27:14) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+WARNING: Can't mass-assign these protected attributes: endtime
+
+ActiveRecord::UnknownAttributeError (unknown attribute: period):
+  app/controllers/events_controller.rb:4:in `new'
+  app/controllers/events_controller.rb:4:in `new'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (39.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-07-31 23:27:18) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+WARNING: Can't mass-assign these protected attributes: endtime
+
+ActiveRecord::UnknownAttributeError (unknown attribute: period):
+  app/controllers/events_controller.rb:4:in `new'
+  app/controllers/events_controller.rb:4:in `new'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-07-31 23:27:24) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+WARNING: Can't mass-assign these protected attributes: endtime
+
+ActiveRecord::UnknownAttributeError (unknown attribute: period):
+  app/controllers/events_controller.rb:4:in `new'
+  app/controllers/events_controller.rb:4:in `new'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (41.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:28:45) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:28:46) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280633326319"}
+  [4;35;1mEvent Load (0.5ms)[0m   [0mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280633326319&start=1280030400&end=1280635200]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-07-31 23:28:48) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+WARNING: Can't mass-assign these protected attributes: endtime, period
+Rendering events/new
+Rendered events/_form (23.0ms)
+Completed in 38ms (View: 31, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:28:48) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:28:48) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_diagonals-thick_20_666666_40x40.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:28:48) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_gloss-wave_35_f6a828_500x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:28:50) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_glass_100_fdf5ce_1x400.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:31:28) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:31:29) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280633489643"}
+  [4;36;1mEvent Load (0.6ms)[0m   [0;1mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/events/get_events?_=1280633489643&start=1280030400&end=1280635200]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-07-31 23:31:31) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+WARNING: Can't mass-assign these protected attributes: endtime, period
+Rendering events/new
+  [4;35;1mEventSeries Load (0.2ms)[0m   [0mSELECT * FROM "event_series" [0m
+
+ActionView::TemplateError (uninitialized constant Event::MeetingType) on line #2 of app/views/events/_form.html.erb:
+1: <% semantic_form_remote_for @event, :url => {:action => :create}, :before => "$('#creating_events').show();", :complete => "$('#creating_events').hide();" do |f| %>
+2:     <%= f.inputs %>
+3:     <%= f.buttons %>
+4:     <% if false %>
+5:     <p>
+
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:1068:in `find_collection_for_column'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:582:in `select_input'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:925:in `send'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:925:in `inline_input_for'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:112:in `send'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:112:in `input'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:111:in `map'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:111:in `input'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:260:in `inputs'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:260:in `map'
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:260:in `inputs'
+    app/views/events/_form.html.erb:2
+    /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/./lib/formtastic.rb:1323:in `semantic_form_remote_for'
+    app/views/events/_form.html.erb:1
+    app/views/events/new.js.rjs:1:in `_run_rjs_app47views47events47new46js46rjs'
+    app/views/events/new.js.rjs:1:in `_run_rjs_app47views47events47new46js46rjs'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (143.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:36:41) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:36:42) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280633802160"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 75ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280633802160&start=1280030400&end=1280635200]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-07-31 23:36:43) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+WARNING: Can't mass-assign these protected attributes: period
+Rendering events/new
+  [4;35;1mEventSeries Load (0.2ms)[0m   [0mSELECT * FROM "event_series" [0m
+  [4;36;1mEventType Load (0.3ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+  [4;35;1mTimeSlot Load (0.3ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendered events/_form (37.4ms)
+Completed in 51ms (View: 42, DB: 1) | 200 OK [http://localhost/events/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:36:43) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:36:43) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_diagonals-thick_20_666666_40x40.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:36:43) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_gloss-wave_35_f6a828_500x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing EventsController#create (for 127.0.0.1 at 2010-07-31 23:37:42) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event"=>{"endtime(4i)"=>"04", "endtime(5i)"=>"36", "time_slot_id"=>"", "event_series_id"=>"", "title"=>"", "starttime(1i)"=>"2005", "starttime(2i)"=>"1", "starttime(3i)"=>"1", "starttime(4i)"=>"00", "event_type_id"=>"", "description"=>"", "endtime(1i)"=>"2010", "starttime(5i)"=>"00", "endtime(2i)"=>"8", "all_day"=>"1", "endtime(3i)"=>"1"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: event_series_id):
+  app/controllers/events_controller.rb:12:in `new'
+  app/controllers/events_controller.rb:12:in `create'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (39.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#create (for 127.0.0.1 at 2010-07-31 23:37:52) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event"=>{"endtime(4i)"=>"04", "endtime(5i)"=>"36", "time_slot_id"=>"", "event_series_id"=>"", "title"=>"", "starttime(1i)"=>"2005", "starttime(2i)"=>"1", "starttime(3i)"=>"1", "starttime(4i)"=>"00", "event_type_id"=>"", "description"=>"", "endtime(1i)"=>"2010", "starttime(5i)"=>"00", "endtime(2i)"=>"8", "all_day"=>"1", "endtime(3i)"=>"1"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: event_series_id):
+  app/controllers/events_controller.rb:12:in `new'
+  app/controllers/events_controller.rb:12:in `create'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (122.6ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mEvent Load (0.2ms)[0m   [0mSELECT * FROM "events" LIMIT 1[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:41:54) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 80ms (View: 78, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:41:55) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280634115082"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 17ms (View: 1, DB: 1) | 200 OK [http://localhost/events/get_events?_=1280634115082&start=1280030400&end=1280635200]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-07-31 23:41:58) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+WARNING: Can't mass-assign these protected attributes: period
+Rendering events/new
+  [4;35;1mEventSeries Load (0.2ms)[0m   [0mSELECT * FROM "event_series" [0m
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+  [4;35;1mTimeSlot Load (0.3ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendered events/_form (39.6ms)
+Completed in 120ms (View: 107, DB: 1) | 200 OK [http://localhost/events/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:41:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:41:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_diagonals-thick_20_666666_40x40.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:41:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_gloss-wave_35_f6a828_500x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing EventsController#create (for 127.0.0.1 at 2010-07-31 23:42:04) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event"=>{"endtime(4i)"=>"04", "endtime(5i)"=>"41", "time_slot_id"=>"", "event_series_id"=>"", "title"=>"", "starttime(1i)"=>"2005", "starttime(2i)"=>"1", "starttime(3i)"=>"1", "starttime(4i)"=>"00", "event_type_id"=>"", "description"=>"", "endtime(1i)"=>"2010", "starttime(5i)"=>"00", "endtime(2i)"=>"8", "all_day"=>"0", "endtime(3i)"=>"1"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: event_series_id):
+  app/controllers/events_controller.rb:12:in `new'
+  app/controllers/events_controller.rb:12:in `create'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (42.4ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:42:31) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_glass_100_fdf5ce_1x400.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-07-31 23:43:36) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-07-31 23:43:37) [GET]
+  Parameters: {"end"=>"1280635200", "start"=>"1280030400", "_"=>"1280634217721"}
+  [4;36;1mEvent Load (1.2ms)[0m   [0;1mSELECT * FROM "events" WHERE (starttime >= '2010-07-25 00:00:00' and endtime <= '2010-08-01 00:00:00') [0m
+Completed in 8ms (View: 1, DB: 1) | 200 OK [http://localhost/events/get_events?_=1280634217721&start=1280030400&end=1280635200]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-07-31 23:43:41) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+WARNING: Can't mass-assign these protected attributes: period
+Rendering events/new
+  [4;35;1mEventSeries Load (0.2ms)[0m   [0mSELECT * FROM "event_series" [0m
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+  [4;35;1mTimeSlot Load (0.9ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendered events/_form (99.4ms)
+Completed in 113ms (View: 103, DB: 1) | 200 OK [http://localhost/events/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:43:42) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:43:42) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_diagonals-thick_20_666666_40x40.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-31 23:43:42) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_gloss-wave_35_f6a828_500x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing EventsController#create (for 127.0.0.1 at 2010-07-31 23:44:09) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event"=>{"endtime(4i)"=>"04", "endtime(5i)"=>"43", "time_slot_id"=>"1", "event_series_id"=>"", "title"=>"foo", "starttime(1i)"=>"2005", "starttime(2i)"=>"1", "starttime(3i)"=>"1", "starttime(4i)"=>"00", "event_type_id"=>"2", "description"=>"vvv", "endtime(1i)"=>"2010", "starttime(5i)"=>"00", "endtime(2i)"=>"8", "all_day"=>"0", "endtime(3i)"=>"1"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: event_series_id):
+  app/controllers/events_controller.rb:12:in `new'
+  app/controllers/events_controller.rb:12:in `create'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (115.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#create (for 127.0.0.1 at 2010-07-31 23:44:24) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event"=>{"endtime(4i)"=>"04", "endtime(5i)"=>"43", "time_slot_id"=>"1", "event_series_id"=>"", "title"=>"foo", "starttime(1i)"=>"2005", "starttime(2i)"=>"1", "starttime(3i)"=>"1", "starttime(4i)"=>"00", "event_type_id"=>"2", "description"=>"vvv", "endtime(1i)"=>"2010", "starttime(5i)"=>"00", "endtime(2i)"=>"8", "all_day"=>"0", "endtime(3i)"=>"1"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: event_series_id):
+  app/controllers/events_controller.rb:12:in `new'
+  app/controllers/events_controller.rb:12:in `create'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (43.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
