@@ -16,10 +16,9 @@
 
 class Event < ActiveRecord::Base
   #attr_accessor :period, :frequency, :commit_button
-  attr_accessible :title, :start_time, :end_time, :all_day, :time_slot_id, :description, :coach_ids
+  attr_accessible :title, :start_time, :end_time, :all_day, :description, :event_type_id, :coach_ids
   has_many :schedules
   has_many :coaches, :through => :schedules
-  belongs_to :time_slot
   belongs_to :event_type
   # validations
   validates_presence_of :title
@@ -29,6 +28,7 @@ class Event < ActiveRecord::Base
       errors.add_to_base("Start Time must be less than End Time")
     end
   end
+  
 =begin
   def update_events(events, event)
     events.each do |e|

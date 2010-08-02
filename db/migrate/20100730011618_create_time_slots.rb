@@ -3,6 +3,7 @@ class CreateTimeSlots < ActiveRecord::Migration
     create_table :time_slots do |t|
       t.time :start_time
       t.string :title
+      t.integer :event_type_id      
       t.boolean :monday, :default => false
       t.boolean :tuesday, :default => false
       t.boolean :wednesday, :default => false

@@ -2,7 +2,6 @@
     <% f.inputs do %>
         <%= f.input :coaches, :as => :check_boxes %>
         <%= f.input :title, :input_html => {:style => "width:65%;"}  %>
-        <%= f.input :time_slot_id, :collection => TimeSlot.all.map{|ts| [ts.start_time.to_s, ts.id]}, :include_blank => false %>
         <%= f.input :event_type_id, :include_blank => false %>
         <%= f.input :start_time, :label => "Start Time", :default => Time.now %>
         <%= f.input :end_time, :label => "End Time" %>

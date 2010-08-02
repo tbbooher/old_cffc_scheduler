@@ -5,7 +5,6 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :start_time, :end_time
       t.integer :event_type_id
       t.boolean :all_day, :default => false
-      t.integer :time_slot_id
       t.timestamps
     end
   end

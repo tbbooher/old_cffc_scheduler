@@ -63,3 +63,87 @@ Migrating to CreateSchedules (20100730021556)
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("events")[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schedules")[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("time_slots")[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-08-02 09:08:50) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 81ms (View: 80, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:08:51) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280754531049"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+Completed in 16ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280754531049&start=1280635200&end=1284264000]
+
+
+Processing CoachesController#index (for 127.0.0.1 at 2010-08-02 09:08:53) [GET]
+  [4;35;1mCoach Load (0.4ms)[0m   [0mSELECT * FROM "coaches" [0m
+Rendering template within layouts/application
+Rendering coaches/index
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/coaches]
+
+
+Processing CoachesController#new (for 127.0.0.1 at 2010-08-02 09:08:55) [GET]
+Rendering template within layouts/application
+Rendering coaches/new
+Rendered coaches/_form (8.7ms)
+Completed in 24ms (View: 19, DB: 0) | 200 OK [http://localhost/coaches/new]
+
+
+Processing CoachesController#create (for 127.0.0.1 at 2010-08-02 09:09:00) [POST]
+  Parameters: {"commit"=>"Create Coach", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "coach"=>{"name"=>"Aviv", "phone"=>"", "description"=>""}}
+  [4;36;1mCoach Create (0.4ms)[0m   [0;1mINSERT INTO "coaches" ("name", "created_at", "updated_at", "phone", "description") VALUES('Aviv', '2010-08-02 13:09:00', '2010-08-02 13:09:00', '', '')[0m
+Redirected to http://localhost:3000/coaches/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/coaches]
+
+
+Processing CoachesController#show (for 127.0.0.1 at 2010-08-02 09:09:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoach Load (0.1ms)[0m   [0mSELECT * FROM "coaches" WHERE ("coaches"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering coaches/show
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://localhost/coaches/1]
+
+
+Processing CoachesController#index (for 127.0.0.1 at 2010-08-02 09:09:03) [GET]
+  [4;36;1mCoach Load (0.5ms)[0m   [0;1mSELECT * FROM "coaches" [0m
+Rendering template within layouts/application
+Rendering coaches/index
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://localhost/coaches]
+
+
+Processing CoachesController#new (for 127.0.0.1 at 2010-08-02 09:09:05) [GET]
+Rendering template within layouts/application
+Rendering coaches/new
+Rendered coaches/_form (6.8ms)
+Completed in 68ms (View: 11, DB: 0) | 200 OK [http://localhost/coaches/new]
+
+
+Processing CoachesController#create (for 127.0.0.1 at 2010-08-02 09:09:08) [POST]
+  Parameters: {"commit"=>"Create Coach", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "coach"=>{"name"=>"Scott", "phone"=>"", "description"=>""}}
+  [4;35;1mCoach Create (0.3ms)[0m   [0mINSERT INTO "coaches" ("name", "created_at", "updated_at", "phone", "description") VALUES('Scott', '2010-08-02 13:09:08', '2010-08-02 13:09:08', '', '')[0m
+Redirected to http://localhost:3000/coaches/2
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/coaches]
+
+
+Processing CoachesController#show (for 127.0.0.1 at 2010-08-02 09:09:08) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCoach Load (0.1ms)[0m   [0;1mSELECT * FROM "coaches" WHERE ("coaches"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering coaches/show
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/coaches/2]
+
+
+Processing CoachesController#index (for 127.0.0.1 at 2010-08-02 09:09:10) [GET]
+  [4;35;1mCoach Load (0.5ms)[0m   [0mSELECT * FROM "coaches" [0m
+Rendering template within layouts/application
+Rendering coaches/index
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/coaches]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-08-02 09:09:15) [GET]
+  [4;36;1mTimeSlot Load (0.4ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/time_slots]

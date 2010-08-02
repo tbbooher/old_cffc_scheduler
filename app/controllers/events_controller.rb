@@ -16,8 +16,7 @@ class EventsController < ApplicationController
           e = Event.new
           e.start_time = start_time
           e.end_time = Time.local(year,month,day,hour+1,min,0)   #=> Sat Jan 01 20:15:01 CST 2000
-          e.time_slot_id = ts.id
-          e.event_type = EventType.first
+          e.event_type = ts.event_type
           e.title = ts.title
           e.save!
         end
