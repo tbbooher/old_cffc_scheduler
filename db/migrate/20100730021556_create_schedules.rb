@@ -1,7 +1,7 @@
 class CreateSchedules < ActiveRecord::Migration
   def self.up
     create_table :schedules do |t|
-      t.integer :trainer_id
+      t.integer :coach_id
       t.integer :event_id
       t.timestamps
     end

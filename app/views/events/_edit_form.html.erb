@@ -1,6 +1,6 @@
 <% semantic_remote_form_for @event, :url => {:action => :update} , :before => "$('#updating_events').show();", :complete => "$('#updating_events').hide();" do |f| %>
     <% f.inputs do %>
-        <%= f.input :trainers, :as => :check_boxes %>
+        <%= f.input :coachs, :as => :check_boxes %>
         <%= f.input :title, :input_html => {:style => "width:65%;"}  %>
         <%= f.input :time_slot_id, :collection => TimeSlot.all.map{|ts| [ts.start_time.to_s, ts.id]}, :include_blank => false %>
         <%= f.input :event_type_id, :include_blank => false %>
@@ -9,29 +9,10 @@
         <%= f.input :description, :input_html => {:rows => 2, :cols => 30}  %>
         <%= f.input :all_day %>
     <% end %>
-    <%if false%>
-        <%period = (@event.event_series)?@event.event_series.period : nil -%>
-        <p>
-          <%=f.label :period, "Repeats" %>
-          <%=f.select :period, Event::REPEATS,{:selected => period}, :onchange => "showPeriodAndFrequency(this.value);" %>
-        </p>
-        <%frequency = (@event.event_series)?@event.event_series.frequency : nil -%>
-        <p id = "frequency" style = "display:<%(period)? '' : 'none'%>;">
-          <%=f.label :frequency, "Repeat every" %>
-          <%=f.select :frequency, (1..30).to_a, {:selected => frequency} %> <span id = "period"></span>
-        </p>
-    <%end%>
     <%=f.hidden_field :id, :value => @event.id%>
     <%=f.hidden_field :commit_button, :value => ""%>
     <p>
-      <%if @event.event_series -%>
-          <%=f.submit 'Update Only This Occurrence', :onclick => "document.getElementById('event_commit_button').value = this.value"%>
-          <%=f.submit 'Update All Occurrence', :onclick => "document.getElementById('event_commit_button').value = this.value"%>
-          <%=f.submit 'Update All Following Occurrence', :onclick => "document.getElementById('event_commit_button').value = this.value"%>
-      <%else-%>
-          <%=f.submit 'Update', :onclick => "document.getElementById('event_commit_button').value = this.value"%>
-      <%end-%>
-  
+      <%=f.submit 'Update', :onclick => "document.getElementById('event_commit_button').value = this.value"%>
       <span id = "updating_events" style = "display:none;">Updating, Please wait...</span>
     </p>
 <%end %>

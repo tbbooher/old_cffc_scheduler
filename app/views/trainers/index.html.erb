@@ -6,16 +6,16 @@
     <th>Description</th>
     <th>Phone</th>
   </tr>
-  <% for trainer in @trainers %>
+  <% for coach in @coachs %>
     <tr>
-      <td><%=h trainer.name %></td>
-      <td><%=h trainer.description %></td>
-      <td><%=h trainer.phone %></td>
-      <td><%= link_to "Show", trainer %></td>
-      <td><%= link_to "Edit", edit_trainer_path(trainer) %></td>
-      <td><%= link_to "Destroy", trainer, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%=h coach.name %></td>
+      <td><%=h coach.description %></td>
+      <td><%=h coach.phone %></td>
+      <td><%= link_to "Show", coach %></td>
+      <td><%= link_to "Edit", edit_coach_path(coach) %></td>
+      <td><%= link_to "Destroy", coach, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Trainer", new_trainer_path %></p>
+<p><%= link_to "New Trainer", new_coach_path %></p>

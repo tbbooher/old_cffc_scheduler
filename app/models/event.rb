@@ -15,30 +15,21 @@
 #
 
 class Event < ActiveRecord::Base
-  attr_accessor :period, :frequency, :commit_button
-  attr_accessible :title, :start_time, :end_time, :all_day, :time_slot_id, :description, :event_series_id, :trainer_ids
+  #attr_accessor :period, :frequency, :commit_button
+  attr_accessible :title, :start_time, :end_time, :all_day, :time_slot_id, :description, :coach_ids
   has_many :schedules
-  has_many :trainers, :through => :schedules
+  has_many :coachs, :through => :schedules
   belongs_to :time_slot
   belongs_to :event_type
-  belongs_to :event_series
   # validations
   validates_presence_of :title
-  
-  REPEATS = [
-              "Does not repeat",
-              "Daily"          ,
-              "Weekly"         ,
-              "Monthly"        ,
-              "Yearly"         
-  ]
   
   def validate
     if (start_time && end_time && (start_time >= end_time)) and !all_day
       errors.add_to_base("Start Time must be less than End Time")
     end
   end
-  
+=begin
   def update_events(events, event)
     events.each do |e|
       begin 
@@ -65,9 +56,10 @@ class Event < ActiveRecord::Base
     event_series.attributes = event
     event_series.save
   end
+=end
 
   def coach_list
-    self.trainers.map{|c| c.name}.join(",")
+    self.coachs.map{|c| c.name}.join(",")
   end
 
 end

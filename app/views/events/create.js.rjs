@@ -6,12 +6,3 @@ if @event
     page.alert @event.errors.full_messages(',').join("\n")
   end
 end
-
-if @event_series
-  if @event_series.save
-    page<<"$('#calendar').fullCalendar( 'refetchEvents' )"
-    page<<"$('#create_event_dialog').dialog('destroy')"
-  else
-    page.alert @event_series.errors.full_messages(',').join("\n")
-  end
-end

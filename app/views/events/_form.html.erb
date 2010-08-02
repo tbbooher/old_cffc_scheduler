@@ -1,6 +1,6 @@
 <% semantic_form_remote_for @event, :url => {:action => :create}, :before => "$('#creating_events').show();", :complete => "$('#creating_events').hide();" do |f| %>
     <% f.inputs do %>
-        <%= f.input :trainers, :as => :check_boxes %>
+        <%= f.input :coachs, :as => :check_boxes %>
         <%= f.input :title, :input_html => {:style => "width:65%;"}  %>
         <%= f.input :time_slot_id, :collection => TimeSlot.all.map{|ts| [ts.start_time.to_s, ts.id]}, :include_blank => false %>
         <%= f.input :event_type_id, :include_blank => false %>
@@ -9,11 +9,6 @@
         <%= f.input :description, :input_html => {:rows => 2, :cols => 30}  %>
         <%= f.input :all_day %>
     <% end %>
-    <p id = "frequency" style = "display:none;">
-      <%= f.label :frequency, "Repeat every" %>
-      <%= f.select :frequency, (1..30).to_a %> <span id = "period"></span>
-    </p>
-    <%= f.select :period, Event::REPEATS,{}, :onchange => "showPeriodAndFrequency(this.value);" %>
     <%= f.hidden_field :id, :value => @event.id %>
     <%= f.buttons %>
     <span id = "creating_events" style = "display:none;">Creating, Please wait...</span>

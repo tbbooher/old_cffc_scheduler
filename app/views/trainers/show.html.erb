@@ -2,19 +2,19 @@
 
 <p>
   <strong>Name:</strong>
-  <%=h @trainer.name %>
+  <%=h @coach.name %>
 </p>
 <p>
   <strong>Description:</strong>
-  <%=h @trainer.description %>
+  <%=h @coach.description %>
 </p>
 <p>
   <strong>Phone:</strong>
-  <%=h @trainer.phone %>
+  <%=h @coach.phone %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_trainer_path(@trainer) %> |
-  <%= link_to "Destroy", @trainer, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", trainers_path %>
+  <%= link_to "Edit", edit_coach_path(@coach) %> |
+  <%= link_to "Destroy", @coach, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", coachs_path %>
 </p>

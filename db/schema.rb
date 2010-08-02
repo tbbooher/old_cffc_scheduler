@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
   add_index "events", ["event_series_id"], :name => "index_events_on_event_series_id"
 
   create_table "schedules", :force => true do |t|
-    t.integer  "trainer_id"
+    t.integer  "coach_id"
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
     t.datetime "updated_at"
   end
 
-  create_table "trainers", :force => true do |t|
+  create_table "coachs", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "phone"

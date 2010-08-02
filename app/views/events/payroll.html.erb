@@ -1,14 +1,14 @@
 <% title 'Payroll for #the month' %>
-<table style="width:80%">
-  <th>Coach</th>
+<table id="payroll">
+  <th class="coach">Coach</th>
   <% @types.each do |event_type| %>
-     <th><%= event_type %></th>
+     <th class="data"><%= event_type %></th>
   <% end %>
-  <% @trainers.each do |name, hash| %>
-      <tr>
-        <td><%= name %></td>
+  <% @coachs.each do |name, hash| %>
+      <tr class="<%= cycle("light", "dark", :name => "row_class") -%>">
+        <td class="coach"><%= name %></td>
         <% @types.each do |event_type| %>        
-            <td><%=h hash[event_type.to_sym] %></td>
+            <td class="data"><%=h hash[event_type.to_sym] %></td>
         <% end %>
       </tr>
   <% end %>

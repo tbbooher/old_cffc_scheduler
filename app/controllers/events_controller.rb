@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   
   def new
-    @event = Event.new(:start_time => Time.now(), :end_time => 1.hour.from_now, :period => "Does not repeat")
+    @event = Event.new(:start_time => Time.now(), :end_time => 1.hour.from_now)
   end
 
   def populate
@@ -31,11 +31,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    if params[:event][:period] == "Does not repeat"
+    if params[:event]
       @event = Event.new(params[:event])
     else
-      #      @event_series = EventSeries.new(:frequency => params[:event][:frequency], :period => params[:event][:repeats], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time], :all_day => params[:event][:all_day])
-      @event_series = EventSeries.new(params[:event])
+      # error!
+      raise "error!"
     end
   end
   
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
     @events = Event.find(:all, :conditions => ["start_time >= '#{Time.at(params['start'].to_i).to_formatted_s(:db)}' and end_time <= '#{Time.at(params['end'].to_i).to_formatted_s(:db)}'"] )
     events = [] 
     @events.each do |event|
-      events << {:id => event.id, :title => event.coach_list, :description => event.description || "Some cool description here...", :start => "#{event.start_time.iso8601}", :end => "#{event.end_time.iso8601}", :allDay => event.all_day, :recurring => (event.event_series_id)? true: false}
+      events << {:id => event.id, :title => event.coach_list, :description => event.description || "Some cool description here...", :start => "#{event.start_time.iso8601}", :end => "#{event.end_time.iso8601}", :allDay => event.all_day, :recurring => false, :className => event.event_type.name }
     end
     render :text => events.to_json
   end
@@ -76,16 +76,8 @@ class EventsController < ApplicationController
   
   def update
     @event = Event.find_by_id(params[:event][:id])
-    if params[:event][:commit_button] == "Update All Occurrence"
-      @events = @event.event_series.events #.find(:all, :conditions => ["start_time > '#{@event.start_time.to_formatted_s(:db)}' "])
-      @event.update_events(@events, params[:event])
-    elsif params[:event][:commit_button] == "Update All Following Occurrence"
-      @events = @event.event_series.events.find(:all, :conditions => ["start_time > '#{@event.start_time.to_formatted_s(:db)}' "])
-      @event.update_events(@events, params[:event])
-    else
-      @event.attributes = params[:event]
-      @event.save
-    end
+    @event.attributes = params[:event]
+    @event.save
 
     render :update do |page|
       page<<"$('#calendar').fullCalendar( 'refetchEvents' )"
@@ -96,14 +88,7 @@ class EventsController < ApplicationController
   
   def destroy
     @event = Event.find_by_id(params[:id])
-    if params[:delete_all] == 'true'
-      @event.event_series.destroy
-    elsif params[:delete_all] == 'future'
-      @events = @event.event_series.events.find(:all, :conditions => ["start_time > '#{@event.start_time.to_formatted_s(:db)}' "])
-      @event.event_series.events.delete(@events)
-    else
-      @event.destroy
-    end
+    @event.destroy
     
     render :update do |page|
       page<<"$('#calendar').fullCalendar( 'refetchEvents' )"
@@ -113,9 +98,9 @@ class EventsController < ApplicationController
   end
 
   def payroll
-    @trainers = []
-    Trainer.all.each do |t|
-      @trainers << [t.name, t.blocks_this_month]
+    @coachs = []
+    Coach.all.each do |t|
+      @coachs << [t.name, t.blocks_this_month]
     end
     @types = EventType.all.map{|et| et.name}
   end

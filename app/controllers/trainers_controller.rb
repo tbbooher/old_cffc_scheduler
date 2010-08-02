@@ -1,44 +1,44 @@
 class TrainersController < ApplicationController
   def index
-    @trainers = Trainer.all
+    @coachs = Trainer.all
   end
   
   def show
-    @trainer = Trainer.find(params[:id])
+    @coach = Trainer.find(params[:id])
   end
   
   def new
-    @trainer = Trainer.new
+    @coach = Trainer.new
   end
   
   def create
-    @trainer = Trainer.new(params[:trainer])
-    if @trainer.save
-      flash[:notice] = "Successfully created trainer."
-      redirect_to @trainer
+    @coach = Trainer.new(params[:coach])
+    if @coach.save
+      flash[:notice] = "Successfully created coach."
+      redirect_to @coach
     else
       render :action => 'new'
     end
   end
   
   def edit
-    @trainer = Trainer.find(params[:id])
+    @coach = Trainer.find(params[:id])
   end
   
   def update
-    @trainer = Trainer.find(params[:id])
-    if @trainer.update_attributes(params[:trainer])
-      flash[:notice] = "Successfully updated trainer."
-      redirect_to @trainer
+    @coach = Trainer.find(params[:id])
+    if @coach.update_attributes(params[:coach])
+      flash[:notice] = "Successfully updated coach."
+      redirect_to @coach
     else
       render :action => 'edit'
     end
   end
   
   def destroy
-    @trainer = Trainer.find(params[:id])
-    @trainer.destroy
-    flash[:notice] = "Successfully destroyed trainer."
-    redirect_to trainers_url
+    @coach = Trainer.find(params[:id])
+    @coach.destroy
+    flash[:notice] = "Successfully destroyed coach."
+    redirect_to coachs_url
   end
 end

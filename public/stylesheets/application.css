@@ -114,3 +114,32 @@ a {
 #nav_menu ul li a:hover {
     text-decoration: underline;
 }
+
+/* REPORT TABLE */
+
+#payroll {
+    width:100%;
+}
+
+#payroll th {
+    border-bottom:1px solid black;
+}
+
+#payroll .coach {
+    text-align:left;
+}
+
+#payroll .data {
+    text-align:center;
+}
+
+#payroll .dark {
+    background-color:#ccc
+}
+
+/* EVENT COLORS */
+.WOD, .fc-agenda .WOD .fc-event-time, .WOD a {
+    background-color: green; /* background color */
+    border-color: green;     /* border color */
+    color: yellow;           /* text color */
+}

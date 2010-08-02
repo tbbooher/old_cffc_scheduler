@@ -1,6 +1,6 @@
 class CreateTrainers < ActiveRecord::Migration
   def self.up
-    create_table :trainers do |t|
+    create_table :coachs do |t|
       t.string :name
       t.text :description
       t.string :phone
@@ -9,6 +9,6 @@ class CreateTrainers < ActiveRecord::Migration
   end
   
   def self.down
-    drop_table :trainers
+    drop_table :coachs
   end
 end
