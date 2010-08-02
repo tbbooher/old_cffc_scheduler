@@ -147,3 +147,672 @@ Processing TimeSlotsController#index (for 127.0.0.1 at 2010-08-02 09:09:15) [GET
 Rendering template within layouts/application
 Rendering time_slots/index
 Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/time_slots]
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateEvents (20100317062400)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "start_time" datetime, "end_time" datetime, "event_type_id" integer, "all_day" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100317062400')[0m
+Migrating to AddDescriptionToEvent (20100319102122)
+  [4;35;1mSQL (0.4ms)[0m   [0mALTER TABLE "events" ADD "description" text[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100319102122')[0m
+Migrating to CreateCoaches (20100730004355)
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "coaches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "phone" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730004355')[0m
+Migrating to CreateMeetingTypes (20100730011555)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "event_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011555')[0m
+Migrating to CreateTimeSlots (20100730011618)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "time_slots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" time, "title" varchar(255), "event_type_id" integer, "monday" boolean DEFAULT 'f', "tuesday" boolean DEFAULT 'f', "wednesday" boolean DEFAULT 'f', "thursday" boolean DEFAULT 'f', "friday" boolean DEFAULT 'f', "saturday" boolean DEFAULT 'f', "sunday" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730011618')[0m
+Migrating to CreateSchedules (20100730021556)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "coach_id" integer, "event_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100730021556')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("coaches")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("event_types")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("events")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schedules")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("time_slots")[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-08-02 09:16:55) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 81ms (View: 79, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:16:56) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280755016310"}
+  [4;36;1mEvent Load (0.4ms)[0m   [0;1mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+Completed in 16ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280755016310&start=1280635200&end=1284264000]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-08-02 09:16:58) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+Rendering events/new
+  [4;35;1mCoach Load (0.2ms)[0m   [0mSELECT * FROM "coaches" [0m
+DEPRECATION WARNING: The _id way of doing things is deprecated. Please use the association method (event_type). (called from send at /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/../lib/formtastic.rb:112)
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendered events/_form (36.4ms)
+Completed in 114ms (View: 103, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-02 09:16:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-02 09:16:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_diagonals-thick_20_666666_40x40.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-02 09:16:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_gloss-wave_35_f6a828_500x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing EventsController#create (for 127.0.0.1 at 2010-08-02 09:17:04) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event"=>{"start_time(1i)"=>"2010", "start_time(2i)"=>"8", "title"=>"foo", "start_time(3i)"=>"2", "end_time(1i)"=>"2010", "start_time(4i)"=>"09", "id"=>"", "end_time(2i)"=>"8", "start_time(5i)"=>"16", "end_time(3i)"=>"2", "end_time(4i)"=>"10", "description"=>"", "end_time(5i)"=>"16", "all_day"=>"0"}}
+WARNING: Can't mass-assign these protected attributes: id
+Rendering events/create
+  [4;35;1mEvent Create (0.4ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-02 14:16:00', '2010-08-02 13:17:04', 'foo', '2010-08-02 13:17:04', NULL, '', '2010-08-02 13:16:00', 'f')[0m
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://localhost/events/create]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:17:04) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280755024366"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+  [4;35;1mCoach Load (0.2ms)[0m   [0mSELECT "coaches".* FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = 1)) [0m
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/events_controller.rb:49:in `get_events'
+  app/controllers/events_controller.rb:48:in `each'
+  app/controllers/events_controller.rb:48:in `get_events'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-08-02 09:17:07) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 79ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:17:07) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280755027806"}
+  [4;36;1mEvent Load (0.6ms)[0m   [0;1mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+  [4;35;1mCoach Load (0.3ms)[0m   [0mSELECT "coaches".* FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = 1)) [0m
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/events_controller.rb:49:in `get_events'
+  app/controllers/events_controller.rb:48:in `each'
+  app/controllers/events_controller.rb:48:in `get_events'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (98.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-08-02 09:17:14) [GET]
+  [4;36;1mTimeSlot Load (0.4ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-08-02 09:17:15) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+  [4;35;1mEventType Load (0.2ms)[0m   [0mSELECT * FROM "event_types" [0m
+Rendered time_slots/_form (23.1ms)
+Completed in 102ms (View: 33, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-08-02 09:17:19) [GET]
+  [4;36;1mEventType Load (0.4ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 70ms (View: 66, DB: 0) | 200 OK [http://localhost/event_types]
+
+
+Processing EventTypesController#new (for 127.0.0.1 at 2010-08-02 09:17:21) [GET]
+Rendering template within layouts/application
+Rendering event_types/new
+Rendered event_types/_form (5.1ms)
+Completed in 20ms (View: 15, DB: 0) | 200 OK [http://localhost/event_types/new]
+
+
+Processing EventTypesController#create (for 127.0.0.1 at 2010-08-02 09:17:24) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event_type"=>{"name"=>"WOD"}}
+  [4;35;1mEventType Create (0.4ms)[0m   [0mINSERT INTO "event_types" ("name", "created_at", "updated_at") VALUES('WOD', '2010-08-02 13:17:24', '2010-08-02 13:17:24')[0m
+Redirected to http://localhost:3000/event_types/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/event_types]
+
+
+Processing EventTypesController#show (for 127.0.0.1 at 2010-08-02 09:17:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" WHERE ("event_types"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering event_types/show
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/event_types/1]
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-08-02 09:17:29) [GET]
+  [4;35;1mEventType Load (0.5ms)[0m   [0mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/event_types]
+
+
+Processing EventTypesController#new (for 127.0.0.1 at 2010-08-02 09:17:30) [GET]
+Rendering template within layouts/application
+Rendering event_types/new
+Rendered event_types/_form (4.6ms)
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/event_types/new]
+
+
+Processing EventTypesController#create (for 127.0.0.1 at 2010-08-02 09:17:36) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event_type"=>{"name"=>"Elements"}}
+  [4;36;1mEventType Create (0.4ms)[0m   [0;1mINSERT INTO "event_types" ("name", "created_at", "updated_at") VALUES('Elements', '2010-08-02 13:17:36', '2010-08-02 13:17:36')[0m
+Redirected to http://localhost:3000/event_types/2
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/event_types]
+
+
+Processing EventTypesController#show (for 127.0.0.1 at 2010-08-02 09:17:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEventType Load (0.1ms)[0m   [0mSELECT * FROM "event_types" WHERE ("event_types"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering event_types/show
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/event_types/2]
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-08-02 09:17:38) [GET]
+  [4;36;1mEventType Load (0.5ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/event_types]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-08-02 09:17:41) [GET]
+  [4;35;1mTimeSlot Load (0.4ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-08-02 09:17:42) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendered time_slots/_form (75.5ms)
+Completed in 85ms (View: 80, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-08-02 09:17:58) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"1", "wednesday"=>"1", "tuesday"=>"1", "title"=>"6AM WOD", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"09", "sunday"=>"0", "saturday"=>"0", "monday"=>"1", "start_time(5i)"=>"00", "thursday"=>"1", "event_type_id"=>"1"}}
+  [4;35;1mTimeSlot Create (0.5ms)[0m   [0mINSERT INTO "time_slots" ("friday", "created_at", "title", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "event_type_id", "start_time") VALUES('t', '2010-08-02 13:17:58', '6AM WOD', 't', 't', '2010-08-02 13:17:58', 't', 'f', 'f', 't', 1, '2001-01-01 09:00:00')[0m
+Redirected to http://localhost:3000/time_slots/1
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-08-02 09:17:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 19ms (View: 12, DB: 0) | 200 OK [http://localhost/time_slots/1]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-08-02 09:18:00) [GET]
+  [4;35;1mTimeSlot Load (0.5ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-08-02 09:18:02) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendered time_slots/_form (21.9ms)
+Completed in 31ms (View: 26, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-08-02 09:18:17) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"1", "start_time(1i)"=>"1", "wednesday"=>"1", "tuesday"=>"1", "title"=>"7AM WOD", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"07", "sunday"=>"0", "saturday"=>"0", "monday"=>"1", "start_time(5i)"=>"00", "thursday"=>"1", "event_type_id"=>"1"}}
+  [4;35;1mTimeSlot Create (0.4ms)[0m   [0mINSERT INTO "time_slots" ("friday", "created_at", "title", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "event_type_id", "start_time") VALUES('t', '2010-08-02 13:18:17', '7AM WOD', 't', 't', '2010-08-02 13:18:17', 't', 'f', 'f', 't', 1, '2001-01-01 07:00:00')[0m
+Redirected to http://localhost:3000/time_slots/2
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-08-02 09:18:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/time_slots/2]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-08-02 09:18:19) [GET]
+  [4;35;1mTimeSlot Load (0.5ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#new (for 127.0.0.1 at 2010-08-02 09:18:20) [GET]
+Rendering template within layouts/application
+Rendering time_slots/new
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendered time_slots/_form (76.1ms)
+Completed in 85ms (View: 80, DB: 0) | 200 OK [http://localhost/time_slots/new]
+
+
+Processing TimeSlotsController#create (for 127.0.0.1 at 2010-08-02 09:18:31) [POST]
+  Parameters: {"commit"=>"Create Timeslot", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "time_slot"=>{"friday"=>"0", "start_time(1i)"=>"1", "wednesday"=>"0", "tuesday"=>"1", "title"=>"Elements 1", "start_time(2i)"=>"1", "start_time(3i)"=>"1", "start_time(4i)"=>"05", "sunday"=>"0", "saturday"=>"0", "monday"=>"0", "start_time(5i)"=>"00", "thursday"=>"1", "event_type_id"=>"2"}}
+  [4;35;1mTimeSlot Create (0.4ms)[0m   [0mINSERT INTO "time_slots" ("friday", "created_at", "title", "tuesday", "wednesday", "updated_at", "monday", "saturday", "sunday", "thursday", "event_type_id", "start_time") VALUES('f', '2010-08-02 13:18:31', 'Elements 1', 't', 'f', '2010-08-02 13:18:31', 'f', 'f', 'f', 't', 2, '2001-01-01 05:00:00')[0m
+Redirected to http://localhost:3000/time_slots/3
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/time_slots]
+
+
+Processing TimeSlotsController#show (for 127.0.0.1 at 2010-08-02 09:18:31) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mTimeSlot Load (0.2ms)[0m   [0;1mSELECT * FROM "time_slots" WHERE ("time_slots"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering time_slots/show
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/time_slots/3]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-08-02 09:18:33) [GET]
+  [4;35;1mTimeSlot Load (0.5ms)[0m   [0mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 17ms (View: 13, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing CoachesController#index (for 127.0.0.1 at 2010-08-02 09:18:35) [GET]
+  [4;36;1mCoach Load (0.4ms)[0m   [0;1mSELECT * FROM "coaches" [0m
+Rendering template within layouts/application
+Rendering coaches/index
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/coaches]
+
+
+Processing CoachesController#new (for 127.0.0.1 at 2010-08-02 09:18:37) [GET]
+Rendering template within layouts/application
+Rendering coaches/new
+Rendered coaches/_form (7.6ms)
+Completed in 77ms (View: 72, DB: 0) | 200 OK [http://localhost/coaches/new]
+
+
+Processing CoachesController#create (for 127.0.0.1 at 2010-08-02 09:18:43) [POST]
+  Parameters: {"commit"=>"Create Coach", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "coach"=>{"name"=>"Aviv", "phone"=>"", "description"=>""}}
+  [4;35;1mCoach Create (1.5ms)[0m   [0mINSERT INTO "coaches" ("name", "created_at", "updated_at", "phone", "description") VALUES('Aviv', '2010-08-02 13:18:43', '2010-08-02 13:18:43', '', '')[0m
+Redirected to http://localhost:3000/coaches/1
+Completed in 14ms (DB: 2) | 302 Found [http://localhost/coaches]
+
+
+Processing CoachesController#show (for 127.0.0.1 at 2010-08-02 09:18:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoach Load (0.1ms)[0m   [0;1mSELECT * FROM "coaches" WHERE ("coaches"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering coaches/show
+Completed in 18ms (View: 12, DB: 0) | 200 OK [http://localhost/coaches/1]
+
+
+Processing CoachesController#index (for 127.0.0.1 at 2010-08-02 09:18:45) [GET]
+  [4;35;1mCoach Load (0.4ms)[0m   [0mSELECT * FROM "coaches" [0m
+Rendering template within layouts/application
+Rendering coaches/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/coaches]
+
+
+Processing CoachesController#new (for 127.0.0.1 at 2010-08-02 09:18:47) [GET]
+Rendering template within layouts/application
+Rendering coaches/new
+Rendered coaches/_form (6.9ms)
+Completed in 17ms (View: 11, DB: 0) | 200 OK [http://localhost/coaches/new]
+
+
+Processing CoachesController#create (for 127.0.0.1 at 2010-08-02 09:18:51) [POST]
+  Parameters: {"commit"=>"Create Coach", "authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "coach"=>{"name"=>"Scott", "phone"=>"", "description"=>""}}
+  [4;36;1mCoach Create (0.4ms)[0m   [0;1mINSERT INTO "coaches" ("name", "created_at", "updated_at", "phone", "description") VALUES('Scott', '2010-08-02 13:18:51', '2010-08-02 13:18:51', '', '')[0m
+Redirected to http://localhost:3000/coaches/2
+Completed in 67ms (DB: 0) | 302 Found [http://localhost/coaches]
+
+
+Processing CoachesController#show (for 127.0.0.1 at 2010-08-02 09:18:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mCoach Load (0.1ms)[0m   [0mSELECT * FROM "coaches" WHERE ("coaches"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering coaches/show
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/coaches/2]
+
+
+Processing EventTypesController#index (for 127.0.0.1 at 2010-08-02 09:18:53) [GET]
+  [4;36;1mEventType Load (0.4ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendering template within layouts/application
+Rendering event_types/index
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/event_types]
+
+
+Processing CoachesController#index (for 127.0.0.1 at 2010-08-02 09:18:55) [GET]
+  [4;35;1mCoach Load (0.6ms)[0m   [0mSELECT * FROM "coaches" [0m
+Rendering template within layouts/application
+Rendering coaches/index
+Completed in 14ms (View: 9, DB: 1) | 200 OK [http://localhost/coaches]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-08-02 09:18:58) [GET]
+  [4;36;1mTimeSlot Load (0.6ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing CoachesController#index (for 127.0.0.1 at 2010-08-02 09:19:00) [GET]
+  [4;35;1mCoach Load (0.5ms)[0m   [0mSELECT * FROM "coaches" [0m
+Rendering template within layouts/application
+Rendering coaches/index
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/coaches]
+
+
+Processing TimeSlotsController#index (for 127.0.0.1 at 2010-08-02 09:19:02) [GET]
+  [4;36;1mTimeSlot Load (0.6ms)[0m   [0;1mSELECT * FROM "time_slots" [0m
+Rendering template within layouts/application
+Rendering time_slots/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://localhost/time_slots]
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-08-02 09:19:06) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:19:07) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280755147147"}
+  [4;35;1mEvent Load (0.5ms)[0m   [0mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+  [4;36;1mCoach Load (0.2ms)[0m   [0;1mSELECT "coaches".* FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = 1)) [0m
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/events_controller.rb:49:in `get_events'
+  app/controllers/events_controller.rb:48:in `each'
+  app/controllers/events_controller.rb:48:in `get_events'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (37.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#populate (for 127.0.0.1 at 2010-08-02 09:19:09) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+  [4;35;1mTimeSlot Load (0.6ms)[0m   [0mSELECT * FROM "time_slots" [0m
+  [4;36;1mEventType Load (0.6ms)[0m   [0;1mSELECT * FROM "event_types" WHERE ("event_types"."id" = 1) [0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-02 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-02 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-03 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-03 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-04 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-04 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-05 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-05 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-06 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-06 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.4ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-09 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-09 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-10 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-10 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-11 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-11 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-12 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-12 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-13 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-13 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-16 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-16 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-17 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-17 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-18 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-18 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.9ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-19 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-19 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-20 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-20 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-23 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-23 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-24 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-24 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-25 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-25 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.4ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-26 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-26 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-27 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-27 13:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-30 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-30 13:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.4ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-31 14:00:00', '2010-08-02 13:19:09', '6AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-31 13:00:00', 'f')[0m
+  [4;35;1mEventType Load (0.2ms)[0m   [0mSELECT * FROM "event_types" WHERE ("event_types"."id" = 1) [0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-02 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-02 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-03 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-03 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.4ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-04 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-04 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-05 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-05 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.4ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-06 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-06 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-09 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-09 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.4ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-10 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-10 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-11 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-11 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-12 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-12 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-13 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-13 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-16 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-16 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-17 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-17 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.4ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-18 12:00:00', '2010-08-02 13:19:09', '7AM WOD', '2010-08-02 13:19:09', 1, NULL, '2010-08-18 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.4ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-19 12:00:00', '2010-08-02 13:19:10', '7AM WOD', '2010-08-02 13:19:10', 1, NULL, '2010-08-19 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-20 12:00:00', '2010-08-02 13:19:10', '7AM WOD', '2010-08-02 13:19:10', 1, NULL, '2010-08-20 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-23 12:00:00', '2010-08-02 13:19:10', '7AM WOD', '2010-08-02 13:19:10', 1, NULL, '2010-08-23 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-24 12:00:00', '2010-08-02 13:19:10', '7AM WOD', '2010-08-02 13:19:10', 1, NULL, '2010-08-24 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.4ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-25 12:00:00', '2010-08-02 13:19:10', '7AM WOD', '2010-08-02 13:19:10', 1, NULL, '2010-08-25 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.4ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-26 12:00:00', '2010-08-02 13:19:10', '7AM WOD', '2010-08-02 13:19:10', 1, NULL, '2010-08-26 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-27 12:00:00', '2010-08-02 13:19:10', '7AM WOD', '2010-08-02 13:19:10', 1, NULL, '2010-08-27 11:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-30 12:00:00', '2010-08-02 13:19:10', '7AM WOD', '2010-08-02 13:19:10', 1, NULL, '2010-08-30 11:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-31 12:00:00', '2010-08-02 13:19:10', '7AM WOD', '2010-08-02 13:19:10', 1, NULL, '2010-08-31 11:00:00', 'f')[0m
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" WHERE ("event_types"."id" = 2) [0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-03 10:00:00', '2010-08-02 13:19:10', 'Elements 1', '2010-08-02 13:19:10', 2, NULL, '2010-08-03 09:00:00', 'f')[0m
+  [4;36;1mEvent Create (1.0ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-05 10:00:00', '2010-08-02 13:19:10', 'Elements 1', '2010-08-02 13:19:10', 2, NULL, '2010-08-05 09:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-10 10:00:00', '2010-08-02 13:19:10', 'Elements 1', '2010-08-02 13:19:10', 2, NULL, '2010-08-10 09:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-12 10:00:00', '2010-08-02 13:19:10', 'Elements 1', '2010-08-02 13:19:10', 2, NULL, '2010-08-12 09:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-17 10:00:00', '2010-08-02 13:19:10', 'Elements 1', '2010-08-02 13:19:10', 2, NULL, '2010-08-17 09:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.4ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-19 10:00:00', '2010-08-02 13:19:10', 'Elements 1', '2010-08-02 13:19:10', 2, NULL, '2010-08-19 09:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.3ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-24 10:00:00', '2010-08-02 13:19:10', 'Elements 1', '2010-08-02 13:19:10', 2, NULL, '2010-08-24 09:00:00', 'f')[0m
+  [4;36;1mEvent Create (0.3ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-26 10:00:00', '2010-08-02 13:19:10', 'Elements 1', '2010-08-02 13:19:10', 2, NULL, '2010-08-26 09:00:00', 'f')[0m
+  [4;35;1mEvent Create (0.4ms)[0m   [0mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-31 10:00:00', '2010-08-02 13:19:10', 'Elements 1', '2010-08-02 13:19:10', 2, NULL, '2010-08-31 09:00:00', 'f')[0m
+Rendering events/populate
+Completed in 332ms (View: 4, DB: 20) | 200 OK [http://localhost/events/populate]
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-08-02 09:19:12) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:19:12) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280755152735"}
+  [4;36;1mEvent Load (2.6ms)[0m   [0;1mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+  [4;35;1mCoach Load (0.3ms)[0m   [0mSELECT "coaches".* FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = 1)) [0m
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/events_controller.rb:49:in `get_events'
+  app/controllers/events_controller.rb:48:in `each'
+  app/controllers/events_controller.rb:48:in `get_events'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (39.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-08-02 09:19:15) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:19:16) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280755156101"}
+  [4;36;1mEvent Load (2.3ms)[0m   [0;1mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+  [4;35;1mCoach Load (0.2ms)[0m   [0mSELECT "coaches".* FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = 1)) [0m
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/events_controller.rb:49:in `get_events'
+  app/controllers/events_controller.rb:48:in `each'
+  app/controllers/events_controller.rb:48:in `get_events'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (100.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#empty_out_month (for 127.0.0.1 at 2010-08-02 09:19:18) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+  [4;36;1mEvent Load (2.1ms)[0m   [0;1mSELECT * FROM "events" [0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 1[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 2[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 3[0m
+  [4;36;1mEvent Destroy (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 4[0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 5[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 6[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 7[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 8[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 9[0m
+  [4;36;1mEvent Destroy (0.4ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 10[0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 11[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 12[0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 13[0m
+  [4;36;1mEvent Destroy (0.4ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 14[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 15[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 16[0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 17[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 18[0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 19[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 20[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 21[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 22[0m
+  [4;35;1mEvent Destroy (0.5ms)[0m   [0mDELETE FROM "events" WHERE "id" = 23[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 24[0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 25[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 26[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 27[0m
+  [4;36;1mEvent Destroy (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 28[0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 29[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 30[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 31[0m
+  [4;36;1mEvent Destroy (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 32[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 33[0m
+  [4;36;1mEvent Destroy (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 34[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 35[0m
+  [4;36;1mEvent Destroy (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 36[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 37[0m
+  [4;36;1mEvent Destroy (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 38[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 39[0m
+  [4;36;1mEvent Destroy (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 40[0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 41[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 42[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 43[0m
+  [4;36;1mEvent Destroy (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 44[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 45[0m
+  [4;36;1mEvent Destroy (0.4ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 46[0m
+  [4;35;1mEvent Destroy (0.3ms)[0m   [0mDELETE FROM "events" WHERE "id" = 47[0m
+  [4;36;1mEvent Destroy (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 48[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 49[0m
+  [4;36;1mEvent Destroy (0.5ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 50[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 51[0m
+  [4;36;1mEvent Destroy (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 52[0m
+  [4;35;1mEvent Destroy (0.2ms)[0m   [0mDELETE FROM "events" WHERE "id" = 53[0m
+  [4;36;1mEvent Destroy (0.4ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 54[0m
+Rendering events/empty_out_month
+Completed in 144ms (View: 5, DB: 16) | 200 OK [http://localhost/events/empty_out_month]
