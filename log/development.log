@@ -816,3 +816,132 @@ Processing EventsController#empty_out_month (for 127.0.0.1 at 2010-08-02 09:19:1
   [4;36;1mEvent Destroy (0.4ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 54[0m
 Rendering events/empty_out_month
 Completed in 144ms (View: 5, DB: 16) | 200 OK [http://localhost/events/empty_out_month]
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-08-02 09:20:15) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 79ms (View: 78, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:20:16) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280755216067"}
+  [4;36;1mEvent Load (0.4ms)[0m   [0;1mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+Completed in 19ms (View: 1, DB: 0) | 200 OK [http://localhost/events/get_events?_=1280755216067&start=1280635200&end=1284264000]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-08-02 09:20:54) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+Rendering events/new
+  [4;35;1mCoach Load (0.3ms)[0m   [0mSELECT * FROM "coaches" [0m
+  [4;36;1mCoach Load (0.2ms)[0m   [0;1mSELECT "coaches".id FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "coaches".id FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = NULL)) [0m
+DEPRECATION WARNING: The _id way of doing things is deprecated. Please use the association method (event_type). (called from send at /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/../lib/formtastic.rb:112)
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendered events/_form (41.8ms)
+Completed in 118ms (View: 107, DB: 1) | 200 OK [http://localhost/events/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-02 09:20:55) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-02 09:20:55) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_diagonals-thick_20_666666_40x40.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-02 09:20:55) [GET]
+
+ActionController::RoutingError (No route matches "/images/ui-bg_gloss-wave_35_f6a828_500x100.png" with {:method=>:get}):
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/Tim/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-08-02 09:24:37) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+Rendering events/new
+  [4;35;1mCoach Load (0.3ms)[0m   [0mSELECT * FROM "coaches" [0m
+  [4;36;1mCoach Load (0.2ms)[0m   [0;1mSELECT "coaches".id FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "coaches".id FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = NULL)) [0m
+DEPRECATION WARNING: The _id way of doing things is deprecated. Please use the association method (event_type). (called from send at /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/../lib/formtastic.rb:112)
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendered events/_form (41.0ms)
+Completed in 55ms (View: 46, DB: 1) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#index (for 127.0.0.1 at 2010-08-02 09:25:03) [GET]
+Rendering template within layouts/application
+Rendering events/index
+Completed in 80ms (View: 78, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:25:04) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280755504244"}
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+Completed in 33ms (View: 1, DB: 1) | 200 OK [http://localhost/events/get_events?_=1280755504244&start=1280635200&end=1284264000]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2010-08-02 09:25:08) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY="}
+Rendering events/new
+  [4;35;1mCoach Load (0.3ms)[0m   [0mSELECT * FROM "coaches" [0m
+  [4;36;1mCoach Load (0.2ms)[0m   [0;1mSELECT "coaches".id FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "coaches".id FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = NULL)) [0m
+DEPRECATION WARNING: The _id way of doing things is deprecated. Please use the association method (event_type). (called from send at /Users/Tim/.rvm/gems/ruby-1.8.7-p249@cfa22/gems/justinfrench-formtastic-0.2.4/rails/../lib/formtastic.rb:112)
+  [4;36;1mEventType Load (0.2ms)[0m   [0;1mSELECT * FROM "event_types" [0m
+Rendered events/_form (41.6ms)
+Completed in 119ms (View: 107, DB: 1) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for 127.0.0.1 at 2010-08-02 09:26:48) [POST]
+  Parameters: {"authenticity_token"=>"PbbxSFY4t0Xqk0cb+8i1gxAL6fm37EssWqZSlBenavY=", "event"=>{"start_time(1i)"=>"2010", "start_time(2i)"=>"8", "title"=>"Today's first meeting", "start_time(3i)"=>"2", "end_time(1i)"=>"2010", "start_time(4i)"=>"09", "id"=>"", "end_time(2i)"=>"8", "start_time(5i)"=>"25", "end_time(3i)"=>"2", "end_time(4i)"=>"10", "event_type_id"=>"1", "description"=>"A good meeting for you", "end_time(5i)"=>"25", "coach_ids"=>["", "1", ""], "all_day"=>"0"}}
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mCoach Load (0.2ms)[0m   [0mSELECT * FROM "coaches" WHERE ("coaches"."id" = 1) [0m
+Rendering events/create
+  [4;36;1mEvent Create (0.4ms)[0m   [0;1mINSERT INTO "events" ("end_time", "created_at", "title", "updated_at", "event_type_id", "description", "start_time", "all_day") VALUES('2010-08-02 14:25:00', '2010-08-02 13:26:48', 'Today''s first meeting', '2010-08-02 13:26:48', 1, 'A good meeting for you', '2010-08-02 13:25:00', 'f')[0m
+  [4;35;1mSchedule Create (0.1ms)[0m   [0mINSERT INTO "schedules" ("created_at", "coach_id", "event_id", "updated_at") VALUES('2010-08-02 13:26:48', 1, 55, '2010-08-02 13:26:48')[0m
+Completed in 96ms (View: 72, DB: 1) | 200 OK [http://localhost/events/create]
+
+
+Processing EventsController#get_events (for 127.0.0.1 at 2010-08-02 09:26:48) [GET]
+  Parameters: {"end"=>"1284264000", "start"=>"1280635200", "_"=>"1280755608222"}
+  [4;36;1mEvent Load (0.8ms)[0m   [0;1mSELECT * FROM "events" WHERE (start_time >= '2010-08-01 00:00:00' and end_time <= '2010-09-12 00:00:00') [0m
+  [4;35;1mCoach Load (0.5ms)[0m   [0mSELECT "coaches".* FROM "coaches" INNER JOIN "schedules" ON "coaches".id = "schedules".coach_id WHERE (("schedules".event_id = 55)) [0m
+  [4;36;1mEventType Load (0.3ms)[0m   [0;1mSELECT * FROM "event_types" WHERE ("event_types"."id" = 1) [0m
+Completed in 30ms (View: 1, DB: 1) | 200 OK [http://localhost/events/get_events?_=1280755608222&start=1280635200&end=1284264000]
