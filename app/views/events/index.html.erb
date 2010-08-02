@@ -2,6 +2,8 @@
 <% title "WOD Schedule" %>
 <p>
   <%=link_to_remote 'Create Event', :url => {:action => :new}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %>
+  <%=link_to_remote "Populate Current Month", :url => {:action => :populate}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %>
+  <%=link_to_remote "Empty Out Month", :url => {:action => :empty_out_month}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %> 
 </p>
 
 <script>
@@ -26,7 +28,7 @@
                   $('#loading').hide();
           },
           events: "/events/get_events",
-          timeFormat: 'h:mm t{ - h:mm t} ',
+          timeFormat: 'h:mm ',
           dragOpacity: "0.5",
           eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
 //              if (confirm("Are you sure about this change?")) {

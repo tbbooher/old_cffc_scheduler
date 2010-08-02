@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
   create_table "event_series", :force => true do |t|
     t.integer  "frequency",  :default => 1
     t.string   "period",     :default => "monthly"
-    t.datetime "starttime"
-    t.datetime "endtime"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.boolean  "all_day",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
-    t.datetime "starttime"
-    t.datetime "endtime"
-    t.boolean  "all_day",         :default => false
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer  "event_type_id"
+    t.boolean  "all_day",         :default => false
     t.integer  "time_slot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
