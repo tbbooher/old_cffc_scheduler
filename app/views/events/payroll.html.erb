@@ -4,7 +4,7 @@
   <% @types.each do |event_type| %>
      <th class="data"><%= event_type %></th>
   <% end %>
-  <% @coachs.each do |name, hash| %>
+  <% @coaches.each do |name, hash| %>
       <tr class="<%= cycle("light", "dark", :name => "row_class") -%>">
         <td class="coach"><%= name %></td>
         <% @types.each do |event_type| %>        

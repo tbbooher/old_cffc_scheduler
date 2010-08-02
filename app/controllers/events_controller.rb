@@ -98,9 +98,9 @@ class EventsController < ApplicationController
   end
 
   def payroll
-    @coachs = []
+    @coaches = []
     Coach.all.each do |t|
-      @coachs << [t.name, t.blocks_this_month]
+      @coaches << [t.name, t.blocks_this_month]
     end
     @types = EventType.all.map{|et| et.name}
   end

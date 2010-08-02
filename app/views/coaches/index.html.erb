@@ -1,4 +1,4 @@
-<% title "Trainers" %>
+<% title "Coaches" %>
 
 <table>
   <tr>
@@ -6,7 +6,7 @@
     <th>Description</th>
     <th>Phone</th>
   </tr>
-  <% for coach in @coachs %>
+  <% for coach in @coaches %>
     <tr>
       <td><%=h coach.name %></td>
       <td><%=h coach.description %></td>
@@ -18,4 +18,4 @@
   <% end %>
 </table>
 
-<p><%= link_to "New Trainer", new_coach_path %></p>
+<p><%= link_to "New Coach", new_coach_path %></p>

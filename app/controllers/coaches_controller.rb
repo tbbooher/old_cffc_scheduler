@@ -1,18 +1,18 @@
-class TrainersController < ApplicationController
+class CoachesController < ApplicationController
   def index
-    @coachs = Trainer.all
+    @coaches = Coach.all
   end
   
   def show
-    @coach = Trainer.find(params[:id])
+    @coach = Coach.find(params[:id])
   end
   
   def new
-    @coach = Trainer.new
+    @coach = Coach.new
   end
   
   def create
-    @coach = Trainer.new(params[:coach])
+    @coach = Coach.new(params[:coach])
     if @coach.save
       flash[:notice] = "Successfully created coach."
       redirect_to @coach
@@ -22,11 +22,11 @@ class TrainersController < ApplicationController
   end
   
   def edit
-    @coach = Trainer.find(params[:id])
+    @coach = Coach.find(params[:id])
   end
   
   def update
-    @coach = Trainer.find(params[:id])
+    @coach = Coach.find(params[:id])
     if @coach.update_attributes(params[:coach])
       flash[:notice] = "Successfully updated coach."
       redirect_to @coach
@@ -36,9 +36,9 @@ class TrainersController < ApplicationController
   end
   
   def destroy
-    @coach = Trainer.find(params[:id])
+    @coach = Coach.find(params[:id])
     @coach.destroy
     flash[:notice] = "Successfully destroyed coach."
-    redirect_to coachs_url
+    redirect_to coaches_url
   end
 end

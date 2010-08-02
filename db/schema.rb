@@ -11,12 +11,10 @@
 
 ActiveRecord::Schema.define(:version => 20100730021556) do
 
-  create_table "event_series", :force => true do |t|
-    t.integer  "frequency",  :default => 1
-    t.string   "period",     :default => "monthly"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.boolean  "all_day",    :default => false
+  create_table "coaches", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,15 +30,12 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "event_type_id"
-    t.boolean  "all_day",         :default => false
+    t.boolean  "all_day",       :default => false
     t.integer  "time_slot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.integer  "event_series_id"
   end
-
-  add_index "events", ["event_series_id"], :name => "index_events_on_event_series_id"
 
   create_table "schedules", :force => true do |t|
     t.integer  "coach_id"
@@ -59,14 +54,6 @@ ActiveRecord::Schema.define(:version => 20100730021556) do
     t.boolean  "friday",     :default => false
     t.boolean  "saturday",   :default => false
     t.boolean  "sunday",     :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "coachs", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -18,7 +18,7 @@ class Event < ActiveRecord::Base
   #attr_accessor :period, :frequency, :commit_button
   attr_accessible :title, :start_time, :end_time, :all_day, :time_slot_id, :description, :coach_ids
   has_many :schedules
-  has_many :coachs, :through => :schedules
+  has_many :coaches, :through => :schedules
   belongs_to :time_slot
   belongs_to :event_type
   # validations
@@ -59,7 +59,7 @@ class Event < ActiveRecord::Base
 =end
 
   def coach_list
-    self.coachs.map{|c| c.name}.join(",")
+    self.coaches.map{|c| c.name}.join(",")
   end
 
 end
