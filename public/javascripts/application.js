@@ -34,9 +34,23 @@ function showEventDetails(event) {
     });
 }
 
-function editEvent(event_id) {
+function editEvent(event) {
+    // added
+    //$('#event_desc').html(event.description);
+    //$('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editEvent(" + event.id + ")'>Edit</a>");
+    title = event.title;
+    $('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteEvent(" + event.id + ", " + false + ")'>Delete</a>");
+    title = event.title;
+    $('#desc_dialog').dialog({
+        title: title,
+        modal: true,
+        width: 500,
+        close: function(event, ui) {
+            $('#desc_dialog').dialog('destroy')
+        }
+    });
     jQuery.ajax({
-        data: 'id=' + event_id,
+        data: 'id=' + event.id,
         dataType: 'script',
         type: 'get',
         url: "/events/edit"

@@ -81,16 +81,19 @@ a {
   list-style: disc;
 }
 
-#nav_menu ul {
+#nav_menu ul{
     position:absolute;
     top:0;
     right:0;
     margin:0;
     padding:0;
-    display: inline;
-} 
+}
 
-#nav_menu ul li {
+ul#nav_list {
+    text-align:center;
+}
+
+#nav_menu ul li, #nav_list li {
     margin-left: 0;
     padding: 3px 15px;
     list-style: none;
@@ -139,7 +142,7 @@ a {
 
 /* EVENT COLORS */
 .WOD, .fc-agenda .WOD .fc-event-time, .WOD a {
-    background-color: green; /* background color */
-    border-color: green;     /* border color */
-    color: yellow;           /* text color */
+    background-color:burlywood; /* background color */
+    border-color: black;     /* border color */
+    color: black;           /* text color */
 }

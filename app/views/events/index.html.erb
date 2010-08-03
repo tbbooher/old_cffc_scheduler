@@ -1,15 +1,12 @@
 
 <% title "WOD Schedule" %>
-<p>
-  <%=link_to_remote 'Create Event', :url => {:action => :new}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %>
-  <%=link_to_remote "Populate Current Month", :url => {:action => :populate}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %>
-  <%=link_to_remote "Empty Out Month", :url => {:action => :empty_out_month}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %>
-</p>
+
 
 <script>
   
   
   $(document).ready(function(){
+      var months= ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
       // page is now ready, initialize the calendar...
       $('#calendar').fullCalendar({
           editable: true,
@@ -26,9 +23,16 @@
                   $('#loading').show();
               else 
                   $('#loading').hide();
+              var d = $('#calendar').fullCalendar('getDate');
+              var month_string = months[d.getMonth()] + "-" + d.getFullYear();
+              $("#populate").html("Populate " + month_string);
+              $("#populate").attr('href',"/events/populate/" + month_string);
+              $("#empty").attr('href',"/events/empty_out_month/" + month_string);
+              $("#empty").html('Delete events for ' + month_string);              
+              //$("#month_to_parse").html(month_string);
           },
           events: "/events/get_events",
-          timeFormat: 'h:mm ',
+          timeFormat: 'h:mm',
           dragOpacity: "0.5",
           eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
 //              if (confirm("Are you sure about this change?")) {
@@ -48,7 +52,8 @@
 //              }
           },
           eventClick: function(event, jsEvent, view){
-              showEventDetails(event);
+              //showEventDetails(event);
+              editEvent(event) 
           }
       });
   });
@@ -70,4 +75,12 @@
 <div id = "create_event_dialog" style ="display:none;">
   <div id = "create_event">
   </div>
+</div>
+<ul id="nav_list">
+  <li><%=link_to_remote 'Create Event', :url => {:action => :new}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %></li>
+  <li><%=link_to "", "", {:id => "populate"} %></li>
+  <li><%=link_to "foo", "",  {:confirm => "You are about to delete all events for this month, are you sure?", :id => "empty"} %></li>
+</ul>
+<div style="text-align:center; width:100%; color:darkgray;">
+     CFA scheduling application &mdash; Timothy B. Booher, 2010
 </div>

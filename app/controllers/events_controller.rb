@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   end
 
   def populate
-    inspection_date = Date.today
+    inspection_date = Date.parse(params[:id])
     month = inspection_date.month
     year = inspection_date.year
     TimeSlot.all.each do |ts|
@@ -22,11 +22,14 @@ class EventsController < ApplicationController
         end
       end
     end
+    redirect_to("/events/index/#{params[:id]}")
   end
 
   def empty_out_month
-    inspection_date = Date.today
-    Event.destroy_all{|e| e.start_time.month == inspection_date.month && e.start_time.year = inspection_date.year}
+    inspection_date = Date.parse(params[:id])
+    ids = Event.all.select{|e| e.start_time.to_date >= inspection_date.beginning_of_month && e.start_time.to_date <= inspection_date.end_of_month}.map{|e| e.id}
+    Event.destroy(ids)
+    redirect_to :action => :index
   end
 
   def create
@@ -39,7 +42,7 @@ class EventsController < ApplicationController
   end
   
   def index
-    
+    #@my_date = Date.parse(params[:id])    
   end
   
   def get_events
@@ -97,9 +100,11 @@ class EventsController < ApplicationController
   end
 
   def payroll
+    @month = params[:id] ? Date.parse(params[:id]) : Date.today
+    @months = Event.months_available
     @coaches = []
     Coach.all.each do |t|
-      @coaches << [t.name, t.blocks_this_month]
+      @coaches << [t.name, t.blocks_this_month(@month)]
     end
     @types = EventType.all.map{|et| et.name}
   end
