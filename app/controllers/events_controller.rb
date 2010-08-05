@@ -5,23 +5,23 @@ class EventsController < ApplicationController
   end
 
   def populate
-    inspection_date = Date.parse(params[:id])
-    month = inspection_date.month
-    year = inspection_date.year
+    @inspection_date = Date.parse(params[:id])
+    month = @inspection_date.month
+    year = @inspection_date.year
     TimeSlot.all.each do |ts|
       hour, min = ts.start_time.hour, ts.start_time.min
-      (inspection_date.beginning_of_month.day..inspection_date.end_of_month.day).to_a.each do |day|
+      (@inspection_date.beginning_of_month.day..@inspection_date.end_of_month.day).to_a.each do |day|
         start_time = Time.local(year,month,day,hour,min,0)   #=> Sat Jan 01 20:15:01 CST 2000
         if date_match(ts,start_time.strftime('%A'))
           e = Event.new
           e.start_time = start_time
           e.end_time = Time.local(year,month,day,hour+1,min,0)   #=> Sat Jan 01 20:15:01 CST 2000
           e.event_type = ts.event_type
-          e.title = ts.title
+          e.title = ts.title.blank? ? "no title" : ts.title
           e.save!
         end
       end
-    end
+    end 
     redirect_to("/events/index/#{params[:id]}")
   end
 
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     inspection_date = Date.parse(params[:id])
     ids = Event.all.select{|e| e.start_time.to_date >= inspection_date.beginning_of_month && e.start_time.to_date <= inspection_date.end_of_month}.map{|e| e.id}
     Event.destroy(ids)
-    redirect_to :action => :index
+    redirect_to("/events/index/#{params[:id]}")
   end
 
   def create
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
   end
   
   def index
-    #@my_date = Date.parse(params[:id])    
+    @my_date = params[:id] ? Date.parse(params[:id]) : nil  
   end
   
   def get_events

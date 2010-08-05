@@ -1,0 +1,2 @@
+page<<"$('#calendar').fullCalendar( 'gotoDate', 2010, 5)"
+page<<"$('#calendar').fullCalendar( 'refetchEvents' )"

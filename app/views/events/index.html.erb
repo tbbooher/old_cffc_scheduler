@@ -1,9 +1,7 @@
 
 <% title "WOD Schedule" %>
 
-
-<script>
-  
+<script type="text/javascript">
   
   $(document).ready(function(){
       var months= ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
@@ -28,7 +26,8 @@
               $("#populate").html("Populate " + month_string);
               $("#populate").attr('href',"/events/populate/" + month_string);
               $("#empty").attr('href',"/events/empty_out_month/" + month_string);
-              $("#empty").html('Delete events for ' + month_string);              
+              $("#empty").html('Delete events for ' + month_string);
+
               //$("#month_to_parse").html(month_string);
           },
           events: "/events/get_events",
@@ -56,6 +55,9 @@
               editEvent(event) 
           }
       });
+      <% if @my_date %>
+        $("#calendar").fullCalendar('gotoDate',<%= @my_date.year %>,<%= @my_date.month-1 %>);
+      <% end %>
   });
 </script>
 <div>
@@ -78,7 +80,7 @@
 </div>
 <ul id="nav_list">
   <li><%=link_to_remote 'Create Event', :url => {:action => :new}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %></li>
-  <li><%=link_to "", "", {:id => "populate"} %></li>
+  <li><%=link_to_remote "", :url => "",:html => {:id => "populate"} %></li>
   <li><%=link_to "foo", "",  {:confirm => "You are about to delete all events for this month, are you sure?", :id => "empty"} %></li>
 </ul>
 <div style="text-align:center; width:100%; color:darkgray;">
