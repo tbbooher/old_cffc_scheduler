@@ -1,22 +1,29 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :application, "scheduler"
+set :deploy_to, "/var/www/scheduler.crossfitadaptation.com"
+set :rails_env, "development"
+set :keep_releases, 2
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :scm, :git
+set :repository, "/Users/Tim/Sites/cfa/scheduler/.git/"
+set :branch, "master"
+set :deploy_via, :copy
+set :rake, "/var/lib/gems/1.8/bin/rake"
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+#server "schedule.crossfitadaptation.com", :app, :web, :db, :primary => true
+server "69.164.218.233", :app, :web, :db, :primary => true
 
-# If you are using Passenger mod_rails uncomment this:
-# if you're still using the script/reapear helper you will need
-# these http://github.com/rails/irs_process_scripts
+default_run_options[:pty] = true 
 
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+set :user, 'passenger'
+set :ssh_options, { :forward_agent => true }
+
+ namespace :deploy do
+   desc "Restarting mod_rails with the nifty restart.txt"   
+   task :start do ; end
+   task :stop do ; end
+   task :restart, :roles => :app, :except => { :no_release => true } do
+     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+   end
+ end
+
+after :deploy, "deploy:cleanup"
