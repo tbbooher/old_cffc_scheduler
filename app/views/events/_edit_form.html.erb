@@ -10,8 +10,12 @@
     <% end %>
     <%=f.hidden_field :id, :value => @event.id%>
     <%=f.hidden_field :commit_button, :value => ""%>
-    <p>
-      <%=f.submit 'Update', :onclick => "document.getElementById('event_commit_button').value = this.value"%>
-      <span id = "updating_events" style = "display:none;">Updating, Please wait...</span>
-    </p>
+    <fieldset class="buttons">
+      <ol>
+        <li class="commit">
+          <%=f.submit 'Update', :onclick => "document.getElementById('event_commit_button').value = this.value"%>
+          <span id = "updating_events" style = "display:none;">Updating, Please wait...</span>
+        </li>
+      </ol>
+    </fieldset>
 <%end %>

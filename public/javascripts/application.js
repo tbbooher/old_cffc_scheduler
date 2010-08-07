@@ -39,7 +39,7 @@ function editEvent(event) {
     //$('#event_desc').html(event.description);
     //$('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editEvent(" + event.id + ")'>Edit</a>");
     title = event.title;
-    $('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteEvent(" + event.id + ", " + false + ")'>Delete</a>");
+    $('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteEvent(" + event.id + ", " + false + ")'>Delete Event</a>");
     title = event.title;
     $('#desc_dialog').dialog({
         title: title,
