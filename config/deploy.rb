@@ -1,6 +1,6 @@
 set :application, "scheduler"
 set :deploy_to, "/var/www/scheduler.crossfitadaptation.com"
-set :rails_env, "development"
+set :rails_env, "production"
 set :keep_releases, 2
 
 set :scm, :git

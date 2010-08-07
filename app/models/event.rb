@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   has_many :coaches, :through => :schedules
   belongs_to :event_type
   # validations
-  validates_presence_of :title
+  validates_presence_of :title, :event_type_id
   
   def validate
     if (start_time && end_time && (start_time >= end_time)) and !all_day
