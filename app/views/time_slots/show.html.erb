@@ -2,7 +2,7 @@
 
 <p>
   <strong>Start Time:</strong>
-  <%=h @time_slot.start_time %><br />
+  <%=h @time_slot.start_time.strftime("%r") %><br />
   <%=h "Monday" if @time_slot.monday %>
   <%=h "Tuesday" if @time_slot.tuesday %>
   <%=h "Wednesday" if @time_slot.wednesday %>

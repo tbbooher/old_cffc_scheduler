@@ -27,31 +27,18 @@
               $("#populate").attr('href',"/events/populate/" + month_string);
               $("#empty").attr('href',"/events/empty_out_month/" + month_string);
               $("#empty").html('Delete events for ' + month_string);
-
               //$("#month_to_parse").html(month_string);
           },
           events: "/events/get_events",
           timeFormat: 'h:mm',
           dragOpacity: "0.5",
           eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
-//              if (confirm("Are you sure about this change?")) {
-                  moveEvent(event, dayDelta, minuteDelta, allDay);
-//              }
-//              else {
-//                  revertFunc();
-//              }
+              moveEvent(event, dayDelta, minuteDelta, allDay);
           },
-          
           eventResize: function(event, dayDelta, minuteDelta, revertFunc){
-//              if (confirm("Are you sure about this change?")) {
-                  resizeEvent(event, dayDelta, minuteDelta);
-//              }
-//              else {
-//                  revertFunc();
-//              }
+              resizeEvent(event, dayDelta, minuteDelta);
           },
           eventClick: function(event, jsEvent, view){
-              //showEventDetails(event);
               editEvent(event) 
           }
       });
@@ -67,10 +54,7 @@
 <div id = "desc_dialog" style ="display:none;">
   <div id = "event_desc">
   </div>
-  <br/>
-  <br/>
   <div id = "event_actions">
-    <!-- <span id = "edit_event"></span> -->
     <span id = "delete_event"></span>
   </div>
 </div>
@@ -80,7 +64,7 @@
 </div>
 <ul id="nav_list">
   <li><%=link_to_remote 'Create Event', :url => {:action => :new}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %></li>
-  <li><%=link_to_remote "", :url => "",:html => {:id => "populate"} %></li>
+  <li><%=link_to_remote "", :html => {:id => "populate"} %></li>
   <li><%=link_to "foo", "",  {:confirm => "You are about to delete all events for this month, are you sure?", :id => "empty"} %></li>
 </ul>
 <div style="text-align:center; width:100%; color:darkgray;">
