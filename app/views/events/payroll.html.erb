@@ -1,6 +1,6 @@
 <% title "Payroll for #{@month.strftime('%B %Y')}" %>
 
-<%= @months.map{|m| link_to(m.strftime('%b'), :action=>:payroll, :id => m.strftime('%b-%y'))}.join(" | ") %>
+<%= @months.map{|m| link_to(m.strftime('%b'), :action=>:payroll, :id => m.strftime('%b-%y'))}.join(" | ") if @months %>
 
 
 <table id="payroll">
