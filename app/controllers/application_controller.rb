@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   protected
   
-  def admin_required
+  def check_for_admin
     authenticate_or_request_with_http_basic do |user_name, password|
       user_name == 'admin' && password == 'adapt!'
     end if RAILS_ENV == 'production' || params[:admin_http]

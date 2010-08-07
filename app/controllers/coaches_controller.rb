@@ -1,5 +1,5 @@
 class CoachesController < ApplicationController
-  before_filter :admin_required
+  before_filter :check_for_admin
 
   def index
     @coaches = Coach.all

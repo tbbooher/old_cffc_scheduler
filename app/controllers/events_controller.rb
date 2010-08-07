@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :admin_required
+  before_filter :check_for_admin, :except => :get_events
   
   def new
     @event = Event.new(:start_time => Time.now(), :end_time => 1.hour.from_now)
