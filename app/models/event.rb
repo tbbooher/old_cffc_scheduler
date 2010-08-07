@@ -31,13 +31,18 @@ class Event < ActiveRecord::Base
 
   def self.months_available
     dates = Event.all.map{|e| e.start_time.to_date}
-    my_month = dates.min
-    months = [my_month]
-    while my_month.beginning_of_month < dates.max.beginning_of_month
-      my_month = my_month.next_month
-      months << my_month
+    if dates.empty?
+       # we have an error
+      return []
+    else
+      my_month = dates.min
+      months = [my_month]
+      while my_month.beginning_of_month < dates.max.beginning_of_month
+        my_month = my_month.next_month
+        months << my_month
+      end
+      return months
     end
-    return months
   end
   
 =begin
