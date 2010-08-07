@@ -64,7 +64,7 @@
 </div>
 <ul id="nav_list">
   <li><%=link_to_remote 'Create Event', :url => {:action => :new}, :before => "$('#loading').show()", :complete => "$('#loading').hide()" %></li>
-  <li><%=link_to_remote "", :html => {:id => "populate"} %></li>
+  <li><%=link_to "", "",{:id => "populate"} %></li>
   <li><%=link_to "foo", "",  {:confirm => "You are about to delete all events for this month, are you sure?", :id => "empty"} %></li>
 </ul>
 <div style="text-align:center; width:100%; color:darkgray;">
