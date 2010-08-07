@@ -1,4 +1,6 @@
 class EventTypesController < ApplicationController
+  before_filter :admin_required
+
   def index
     @event_types = EventType.all
   end

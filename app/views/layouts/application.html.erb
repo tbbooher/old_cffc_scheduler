@@ -12,15 +12,17 @@
   </head>
   <body class="subpage">
     <div id="container">
+      <% unless @no_admin %>
       <div id="nav_menu">
-	<ul>
-	  <li><%= link_to "Time Slots", :controller => :time_slots %></li>
-	  <li><%= link_to "Coaches", :controller => :coaches %></li>
-	  <li><%= link_to "Event Types", :controller => :event_types %></li>
-	  <li><%= link_to "Calendar", :controller => :events %></li>
-      <li><%= link_to "Payroll", :controller => :events, :action => 'payroll' %></li>
-	</ul>
+        <ul>
+          <li><%= link_to "Time Slots", :controller => :time_slots %></li>
+          <li><%= link_to "Coaches", :controller => :coaches %></li>
+          <li><%= link_to "Event Types", :controller => :event_types %></li>
+          <li><%= link_to "Calendar", :controller => :events %></li>
+          <li><%= link_to "Payroll", :controller => :events, :action => 'payroll' %></li>
+        </ul>
       </div>
+      <% end %>
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <%- end -%>

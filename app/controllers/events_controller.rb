@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_filter :admin_required
   
   def new
     @event = Event.new(:start_time => Time.now(), :end_time => 1.hour.from_now)
@@ -117,5 +118,5 @@ class EventsController < ApplicationController
     end
     return false
   end
-  
+
 end

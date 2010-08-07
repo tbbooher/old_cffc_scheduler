@@ -1,4 +1,6 @@
 class TimeSlotsController < ApplicationController
+  before_filter :admin_required
+
   def index
     @time_slots = TimeSlot.all
   end
