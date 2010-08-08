@@ -8,7 +8,7 @@
   <% for time_slot in @time_slots %>
     <tr>
       <td><%=h time_slot.title %></td>
-      <td><%=h time_slot.start_time.to_s %></td>
+      <td><%=h time_slot.start_time.strftime("%r") %></td>
       <td><%= link_to "Show", time_slot %></td>
       <td><%= link_to "Edit", edit_time_slot_path(time_slot) %></td>
       <td><%= link_to "Destroy", time_slot, :confirm => 'Are you sure?', :method => :delete %></td>
