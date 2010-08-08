@@ -146,3 +146,9 @@ ul#nav_list {
     border-color: black;     /* border color */
     color: black;           /* text color */
 }
+
+.Elements, .fc-agenda .Elements .fc-event-time, .Elements a {
+    background-color:darkseagreen; /* background color */
+    border-color: black;     /* border color */
+    color: black;           /* text color */
+}
