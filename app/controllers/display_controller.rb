@@ -1,5 +1,5 @@
 class DisplayController < ApplicationController
-  before_filter :coach_check
+  #before_filter :coach_check
 
   def index
     @no_admin = true

@@ -152,3 +152,9 @@ ul#nav_list {
     border-color: black;     /* border color */
     color: black;           /* text color */
 }
+
+.Yoga, .fc-agenda .Yoga .fc-event-time, .Yoga a {
+    background-color:gainsboro; /* background color */
+    border-color: slategray;     /* border color */
+    color: black;           /* text color */
+}
