@@ -20,6 +20,7 @@ class Event < ActiveRecord::Base
   has_many :schedules
   has_many :coaches, :through => :schedules
   belongs_to :event_type
+  belongs_to :time_slot
   # validations
   validates_presence_of :title, :event_type_id
   
@@ -43,6 +44,10 @@ class Event < ActiveRecord::Base
       end
       return months
     end
+  end
+
+  def self.find_existing_time_slots_in_date(dt)
+    Event.all(:conditions => ["start_time >= '#{dt.beginning_of_day.to_s(:db)}' and end_time <= '#{dt.end_of_day.to_s(:db)}'"] ).map{|e| e.time_slot_id}
   end
   
 =begin

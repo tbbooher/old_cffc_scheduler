@@ -13,10 +13,11 @@ class EventsController < ApplicationController
       hour, min = ts.start_time.hour, ts.start_time.min
       (@inspection_date.beginning_of_month.day..@inspection_date.end_of_month.day).to_a.each do |day|
         start_time = Time.local(year,month,day,hour,min,0)   #=> Sat Jan 01 20:15:01 CST 2000
-        if date_match(ts,start_time.strftime('%A'))
+        if date_match(ts,start_time.strftime('%A')) && does_not_exist(ts.id,start_time)
           e = Event.new
           e.start_time = start_time
           e.end_time = Time.local(year,month,day,hour+1,min,0)   #=> Sat Jan 01 20:15:01 CST 2000
+          e.time_slot_id = ts.id
           e.event_type = ts.event_type
           e.title = ts.title.blank? ? "no title" : ts.title
           e.save!
@@ -117,6 +118,10 @@ class EventsController < ApplicationController
        return true if (ts.send(weekday.downcase) && (weekday == day_name))
     end
     return false
+  end
+
+  def does_not_exist(ts_id, the_date)
+    !Event.find_existing_time_slots_in_date(the_date).include?(ts_id) # we want to make sure the event exists on 'day'
   end
 
 end
