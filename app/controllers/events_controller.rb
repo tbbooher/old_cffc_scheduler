@@ -102,7 +102,8 @@ class EventsController < ApplicationController
   end
 
   def payroll
-    @month = params[:id] ? Date.parse(params[:id]) : Date.today
+
+    @month = params[:id] ? Date.parse(Date.parse(params[:id]).strftime('1-%B-20%d')) : Date.today
     @months = Event.months_available
     @coaches = []
     Coach.all.each do |t|
